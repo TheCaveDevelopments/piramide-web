@@ -1,0 +1,67 @@
+@import 'src/styles/mixins/media-queries';
+
+$primaryColor: #6D6D6E;
+$secondaryColor: #9C27B0;
+$fontSizeDesktop: 1.5rem;
+$fontSizeTablet: 1.3rem;
+$fontSizeMobile: 1.2rem;
+
+nav{
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100vw;
+    height: 6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .buttonContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 2rem;
+        .button{
+            margin-left: 1rem;
+        }
+    }
+
+    li{
+        color: $secondaryColor;
+        list-style: none;
+        display: inline;
+        margin-right: 1rem;
+        a{
+            text-decoration: none;
+            color: $secondaryColor;
+            &:hover{
+                color: $primaryColor;
+            }
+            font-size: $fontSizeDesktop;
+            @include mobile {
+                font-size: $fontSizeMobile;
+            }
+            @include tablet {
+                font-size: $fontSizeTablet;
+            }
+        }	
+    }
+
+    .logoContainer{
+        margin-left: 2rem;
+        img{
+            width: 5rem;
+            height: 5rem;
+            @include tablet {
+                width: 4rem;
+                height: 4rem;
+            }
+            @include mobile {
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+    }
+}
