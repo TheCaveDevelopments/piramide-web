@@ -35,11 +35,13 @@ const NavBar = () => {
             <Box className = "buttonContainer">
                 {!isMobile && 
                 <Button variant="outlined" color="secondary">Iniciar sesión</Button>}
+                
                 <IconButton aria-label="cart">
                     <StyledBadge badgeContent={4} color="secondary">
                         <ShoppingCartIcon />
                     </StyledBadge>
                 </IconButton>
+                
                 {isMobile && <SwipeableTemporaryDrawer />}
             </Box>
         </nav>

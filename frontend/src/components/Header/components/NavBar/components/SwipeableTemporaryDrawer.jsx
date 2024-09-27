@@ -10,9 +10,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 const SwipeableTemporaryDrawer = () => {
   const [state, setState] = useState({
-    top: false,
-    left: false,
-    bottom: false,
     right: false,
   });
 
@@ -27,15 +24,15 @@ const SwipeableTemporaryDrawer = () => {
     setState({ ...state, ['right']: open });
   };
 
-  const list = (anchor) => (
+  const list = () => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      sx={{ width: 250 }}
       role="presentation"
       onClick={toggleDrawer(false)}
-      onKeyDown={toggleDrawer(false)}
+      onKeyDown={() => toggleDrawer(false)}
     >
       <List>
-        {['Bienvenido', 'Productos', 'Blog', 'Contacto'].map((text, index) => (
+        {['Bienvenido', 'Productos', 'Blog', 'Contacto'].map((text) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemText primary={text} />
@@ -43,9 +40,11 @@ const SwipeableTemporaryDrawer = () => {
           </ListItem>
         ))}
         <Divider />
-        <ListItemButton >
-          Iniciar Sesión
-        </ListItemButton>
+        <ListItem>
+          <ListItemButton >
+            Iniciar Sesión
+          </ListItemButton>
+        </ListItem>
       </List>
     </Box>
   );
@@ -61,7 +60,7 @@ const SwipeableTemporaryDrawer = () => {
             onClose={toggleDrawer(false)}
             onOpen={toggleDrawer(true)}
           >
-            {list('right')}
+            {list()}
           </SwipeableDrawer>
     </div>
   );
