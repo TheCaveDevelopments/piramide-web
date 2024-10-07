@@ -1,0 +1,15 @@
+@use 'sass:math';
+@import 'src/styles/utilities/styleRules.scss';
+
+h2 {
+    font-family: $font-family-secondary;
+    font-size: $font-size-subtitle;
+    background-color: $primary-color;
+    color: $secondary-color;
+    text-align: center;
+    font-weight: normal;
+    padding: math.div($margin-element, 2) 0;
+    margin: 0;
+    position: sticky;
+    bottom: 0;
+}

@@ -1,14 +1,9 @@
 @import 'src/styles/utilities/styleRules.scss';
-@import 'src/styles/utilities/styleRules.scss';
 
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100vw;
-    font-family: $font-family-primary;
+    font-family: $font-family-secondary;
     background-color: $primary-color;
     color: $secondary-color;
-    padding: $padding-base 0;
-    text-align: center;
+    padding: 0 0 $padding-base;
 }
