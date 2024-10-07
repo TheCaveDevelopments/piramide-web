@@ -6,7 +6,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import './styles/info.scss'
 
-export const Info = () => {
+export const Info = ( {isMobile} ) => {
 
   const [hoveredLocation, setHoveredLocation] = useState(false);
 
@@ -15,27 +15,36 @@ export const Info = () => {
   const [hoveredWhatsapp, setHoveredWhatsapp] = useState(false);
 
   return (
-    <Stack direction='row' className='Stack.info' width={'100%'} justifyContent={'end'}>
-        <Button href="mailto:piramide.soft@gmail.com" target='_blank' rel='noopener'
+    <Stack direction={isMobile ? 'column' : 'row'} className='Stack-info' width={'100%'} justifyContent={'end'}>
+        <Button href="mailto:piramide.soft@gmail.com" target='_blank' rel='noopener' className='Button'
         onMouseEnter={()=>handleMouseEnter(setHoveredMail)} onMouseLeave={()=>handleMouseLeave(setHoveredMail)}>
-            <Collapse in={hoveredMail} orientation='horizontal' className='Collapse' timeout={1000}>
+          <Stack direction={isMobile ? 'row-reverse' : 'row'}>
+            <Collapse orientation='horizontal' className='Collapse' timeout={1000} 
+              in={isMobile ? true : hoveredMail}>
                 <p>piramide.soft@gmail.com</p>
             </Collapse>
             <MailIcon className='Icon'/>
+          </Stack>
         </Button>
-        <Button href="https://web.whatsapp.com/send?phone=+543447452943" target='_blank' rel='noopener'
-        onMouseEnter={()=>handleMouseEnter(setHoveredWhatsapp)} onMouseLeave={()=>handleMouseLeave(setHoveredWhatsapp)}>
-            <Collapse in={hoveredWhatsapp} orientation='horizontal' className='Collapse' timeout={1000}>
-                <p>+543447452943</p>
-            </Collapse>
-            <WhatsAppIcon className='Icon'/>
-        </Button>
-        <Button href="https://maps.google.com/maps?q=Bolivar%20152,%20Col%C3%B3n,%20Entre%20Rios,%20Argentina" target='_blank' rel='noopener'
+        <Button href="https://maps.google.com/maps?q=Bolivar%20152,%20Col%C3%B3n,%20Entre%20Rios,%20Argentina" target='_blank' rel='noopener' className='Button'
         onMouseEnter={()=>handleMouseEnter(setHoveredLocation)} onMouseLeave={()=>handleMouseLeave(setHoveredLocation)}>
-            <Collapse in={hoveredLocation} orientation='horizontal' className='Collapse' timeout={1000}>
+          <Stack direction={isMobile ? 'row-reverse' : 'row'}>
+            <Collapse orientation='horizontal' className='Collapse' timeout={1000}
+              in={isMobile ? true : hoveredLocation}>
                 <p> Bolivar 152, Colón</p>
             </Collapse>
             <PlaceIcon className='Icon'/>
+          </Stack>
+        </Button>
+        <Button href="https://web.whatsapp.com/send?phone=+543447452943" target='_blank' rel='noopener' className='Button'
+        onMouseEnter={()=>handleMouseEnter(setHoveredWhatsapp)} onMouseLeave={()=>handleMouseLeave(setHoveredWhatsapp)}>
+          <Stack direction={isMobile ? 'row-reverse' : 'row'}>
+            <Collapse orientation='horizontal' className='Collapse' timeout={1000}
+              in={isMobile ? true : hoveredWhatsapp}>
+                <p>+543447452943</p>
+            </Collapse>
+            <WhatsAppIcon className='Icon'/>
+          </Stack>
         </Button>
     </Stack>
   )

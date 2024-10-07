@@ -1,11 +1,18 @@
 @import 'src/styles/utilities/styleRules.scss';
 
+.Button {
+    padding: $padding-base;
+    
+    .Icon {
+        color: $secondary-color;
+    }
+}
+.Collapse {
+    margin: 0;
+}
 
 p {
+    margin: 0;
     white-space: nowrap;
     color: $secondary-color;
   }
-
-.Icon {
-    color: $secondary-color;
-}
