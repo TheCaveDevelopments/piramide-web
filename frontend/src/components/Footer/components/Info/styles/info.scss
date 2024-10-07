@@ -1,15 +1,7 @@
 @import 'src/styles/utilities/styleRules.scss';
 
-.Button {
-    padding: $padding-base;
-}
-
-.Collapse {
-    margin: 0;
-}
 
 p {
-    margin: 0;
     white-space: nowrap;
     color: $secondary-color;
   }
