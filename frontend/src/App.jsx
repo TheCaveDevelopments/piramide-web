@@ -1,9 +1,13 @@
-import { Header } from './components';
+
+import { Header, Footer, Main, Slogan } from './components';
 function App() {
 
   return (
     <>
       <Header />
+      <Main />
+      <Slogan />
+      <Footer />
     </>
   )
 }

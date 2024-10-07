@@ -1,0 +1,9 @@
+@import 'src/styles/utilities/styleRules.scss';
+
+footer {
+    width: 100vw;
+    font-family: $font-family-secondary;
+    background-color: $primary-color;
+    color: $secondary-color;
+    padding: 0 0 $padding-base;
+}
