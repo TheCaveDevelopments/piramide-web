@@ -1,13 +1,16 @@
-import NavBar from "./components/NavBar/NavBar";
+import { useMediaQuery } from 'react-responsive';
+import { NavBar, Logo, SwipeableTemporaryDrawer } from './components';
 import './styles/Header.scss';
 
-const Header = () => {
+export const Header = () => {
+    const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
     return (
         <header>
-            <NavBar />
+            <Logo source="piramide-logo-circular.png" />
+            <nav>
+                {isMobile ? <SwipeableTemporaryDrawer /> :
+                    <NavBar />}
+            </nav>
         </header>
     )
-
 }
-
-export default Header;

@@ -5,47 +5,39 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { Divider, IconButton } from '@mui/material';
+import { IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { navOptions } from '../variables';
+import './styles/swipeableTemporaryDrawer.scss';
 
-const SwipeableTemporaryDrawer = () => {
-  const [state, setState] = useState({
-    right: false,
-  });
+export const SwipeableTemporaryDrawer = () => {
+  const [state, setState] = useState(false);
 
   const toggleDrawer = (open) => (event) => {
     if (
-      //Entender esto
       event &&
       event.type === 'keydown' &&
       (event.key === 'Tab' || event.key === 'Shift')
     ) {
       return;
     }
-    setState({ ...state, ['right']: open });
+    setState(open);
   };
 
   const list = () => (
     <Box
-      sx={{ width: 250 }}
-      role="presentation"
+      className="drawerContainer"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {['Bienvenido', 'Productos', 'Blog', 'Contacto'].map((text) => (
-          <ListItem key={text} disablePadding>
+        {navOptions.map((option) => (
+          <ListItem className='listItem' key={option.id} disablePadding>
             <ListItemButton>
-              <ListItemText primary={text} />
+              <ListItemText className='listItemText' primary={option.name} />
             </ListItemButton>
           </ListItem>
         ))}
-        <Divider />
-        <ListItem>
-          <ListItemButton >
-            Iniciar Sesión
-          </ListItemButton>
-        </ListItem>
       </List>
     </Box>
   );
@@ -53,11 +45,11 @@ const SwipeableTemporaryDrawer = () => {
   return (
     <div>
           <IconButton onClick={toggleDrawer(true)}>
-            <MenuIcon />
+            <MenuIcon className='menuIcon'/>
           </IconButton>
           <SwipeableDrawer
             anchor={'right'}
-            open={state['right']}
+            open={state}
             onClose={toggleDrawer(false)}
             onOpen={toggleDrawer(true)}
           >
@@ -66,4 +58,3 @@ const SwipeableTemporaryDrawer = () => {
     </div>
   );
 }
-export default SwipeableTemporaryDrawer;
