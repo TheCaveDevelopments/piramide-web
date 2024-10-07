@@ -20,17 +20,20 @@ const NavBar = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
     return (
-        <nav>   
+        <nav>
+            {/* Definir componente Logo */}
             <Box className="logoContainer">
                 <img src="piramide.ico" alt="Logo" />
             </Box>
 
+            {/* Definir componente NavList */}
             {!isMobile && <ul>
                 <li><a>Bienvenido</a></li>
                 <li><a>Productos</a></li>
                 <li><a>Blog</a></li>
                 <li><a>Contacto</a></li>
             </ul>}
+
 
             <Box className = "buttonContainer">
                 {!isMobile && 

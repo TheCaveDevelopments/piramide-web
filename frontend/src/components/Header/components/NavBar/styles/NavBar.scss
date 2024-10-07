@@ -39,6 +39,7 @@ nav{
             &:hover{
                 color: $primaryColor;
             }
+            
             font-size: $fontSizeDesktop;
             @include mobile {
                 font-size: $fontSizeMobile;

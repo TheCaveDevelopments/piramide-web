@@ -15,6 +15,7 @@ const SwipeableTemporaryDrawer = () => {
 
   const toggleDrawer = (open) => (event) => {
     if (
+      //Entender esto
       event &&
       event.type === 'keydown' &&
       (event.key === 'Tab' || event.key === 'Shift')
@@ -29,7 +30,7 @@ const SwipeableTemporaryDrawer = () => {
       sx={{ width: 250 }}
       role="presentation"
       onClick={toggleDrawer(false)}
-      onKeyDown={() => toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
     >
       <List>
         {['Bienvenido', 'Productos', 'Blog', 'Contacto'].map((text) => (
