@@ -1,5 +1,13 @@
 @import 'src/styles/utilities/styleRules.scss';
+.Stack-redes {
+    width: 100%;
+}
+.Button {
+    .Icon {
+        color: $secondary-color;
+    }
 
-.Icon {
-    color: $secondary-color;
+    p {
+        color: $secondary-color;
+    }
 }
