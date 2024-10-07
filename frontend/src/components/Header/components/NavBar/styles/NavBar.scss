@@ -19,7 +19,7 @@ li {
     background-size: 0 2px;
     background-position: left bottom;
     background-repeat: no-repeat;
-    transition: color 0.5s ease, background-size 0.5s ease;
+    transition: color 0.75s ease, background-size 0.5s ease;
     
     &:hover {
         color: $success-color;
