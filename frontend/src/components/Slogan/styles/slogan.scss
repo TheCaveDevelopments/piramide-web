@@ -1,14 +1,13 @@
 @use 'sass:math';
 @import 'src/styles/utilities/styleRules.scss';
 
-h2 {
+.slogan {
     width: 100vw;
     font-family: $font-family-secondary;
     font-size: $font-size-subtitle;
     background-color: $primary-color;
     color: $secondary-color;
     text-align: center;
-    font-weight: normal;
     margin: 0;
     padding: math.div($margin-element, 2) 0;
     position: sticky;

@@ -1,0 +1,40 @@
+@import 'src/styles/utilities/styleRules.scss';
+@import "src/styles/mixins/media-queries";
+
+.Button {
+    padding: $padding-base;
+    
+    .Icon {
+        color: $secondary-color;
+    }
+    
+    .Collapse {
+    margin: 0;
+    }
+
+    p {
+        margin: 0;
+        visibility: hidden;
+        opacity: 0;
+        white-space: nowrap;
+        color: $secondary-color;
+        transition: all 2s;
+        
+        @include mobile {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        @include tablet {
+            visibility: visible;
+            opacity: 1;
+        }
+      }
+
+    &:hover {
+        p {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
