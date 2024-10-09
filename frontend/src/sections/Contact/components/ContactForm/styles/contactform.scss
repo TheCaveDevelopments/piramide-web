@@ -1,0 +1,41 @@
+@import '../../../../../styles/utilities/styleRules.scss';
+
+.formClass{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: auto;
+    margin: $margin-element;
+    padding: $padding-base;
+    border-radius: 10px;
+    background-color: $secondary-color;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    //&:hover {
+    //    transform: translateY(-5px);
+    //    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    //}
+    .textFieldClass{
+        padding: $padding-base;
+        width: 100%;
+    }
+    .containerFieldClass{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        margin: $margin-element;
+    }
+    .recapcha{
+        position: relative;
+        margin: $margin-element 0;
+    }
+    .submitButton{
+        width: 100%;
+        margin-bottom: $margin-element;
+    }
+}

@@ -1,0 +1,10 @@
+@import '../../../styles/utilities/styleRules.scss';
+
+.contactSection {
+    margin-top: 6rem; // Ajusta este valor según sea necesario
+    height: 100vh; // Cambia a 'auto' para que la altura se ajuste al contenido
+    padding-bottom: 2rem; // Añade un margen inferior si es necesario
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

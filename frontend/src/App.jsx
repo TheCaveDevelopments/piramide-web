@@ -1,11 +1,15 @@
 
-import { Header, Footer, Main, Slogan } from './components';
+import { SnackbarProvider } from 'notistack';
+import { Header, Footer, Slogan } from './components';
+import { Contact } from './sections';
 function App() {
 
   return (
     <>
       <Header />
-      <Main />
+      <SnackbarProvider maxSnack={1}>
+        <Contact />
+      </SnackbarProvider>
       <Slogan />
       <Footer />
     </>
