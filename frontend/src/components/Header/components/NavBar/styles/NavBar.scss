@@ -3,6 +3,7 @@
 
 $fontSizeTablet: 1.3rem;
 $fontSizeMobile: 1.2rem;
+$color-hover:#ECA400;
 
 li {
   color: $secondary-color;
@@ -15,14 +16,14 @@ li {
     text-decoration: none;
     color: $secondary-color;
     border-bottom: 0;
-    background-image: linear-gradient(to right, $success-color 0%, $success-color 100%);
+    background-image: linear-gradient(to right, $color-hover 0%, $color-hover 100%);
     background-size: 0 2px;
     background-position: left bottom;
     background-repeat: no-repeat;
     transition: color 0.75s ease, background-size 0.5s ease;
     
     &:hover {
-        color: $success-color;
+        color: $color-hover;
         background-size: 97% 2px;
     }
 
