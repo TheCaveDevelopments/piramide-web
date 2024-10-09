@@ -1,7 +1,11 @@
+import { useMediaQuery } from 'react-responsive';
 import './styles/slogan.scss'
 
 export const Slogan = () => {
+
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+
   return (
-        <h2>Más de 30 años brindando soluciones informáticas para el mercado</h2>
+        <p className='slogan'>Más de 30 años brindando soluciones{ isMobile ? <br/> : ' ' }informáticas para el mercado</p>
   )
 }

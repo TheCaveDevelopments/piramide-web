@@ -1,18 +1,5 @@
 @import 'src/styles/utilities/styleRules.scss';
 
-.Button {
-    padding: $padding-base;
-    
-    .Icon {
-        color: $secondary-color;
-    }
+.Stack-info {
+    width: 100%;
 }
-.Collapse {
-    margin: 0;
-}
-
-p {
-    margin: 0;
-    white-space: nowrap;
-    color: $secondary-color;
-  }
