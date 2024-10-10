@@ -6,6 +6,7 @@ $fontSizeTablet: 1.3rem;
 $fontSizeMobile: 1.2rem;
 
 header {
+  font-family: $font-family-primary;
   position: fixed;
   top: 0;
   left: 0;
@@ -15,6 +16,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 0.25rem solid black;
 
   nav {
     margin: $margin-element;
