@@ -1,10 +1,11 @@
-import { Box } from "@mui/material"
+import { Box, Stack } from "@mui/material"
+import { Inicio } from "./components"
 import './styles/main.scss'
 
 export const Main = () => {
   return (
     <Box component={'main'}>
-        <h1>Este es el Main</h1>
+        <Inicio />
     </Box>
   )
 }

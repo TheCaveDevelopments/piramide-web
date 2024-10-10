@@ -15,9 +15,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1000;
 
   nav {
-    margin: $margin-element;
+    margin: 0 $margin-element;
     width: 100vw;
     height: 100%;
     display: flex;

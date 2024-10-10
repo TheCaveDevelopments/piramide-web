@@ -1,0 +1,18 @@
+@import 'src/styles/utilities/styleRules.scss';
+@import "src/styles/mixins/media-queries";
+
+.Inicio {
+    color: $text-color;
+    height: calc(100vh - (5rem + $margin-element + $font-size-subtitle));
+    width: 100vw;
+        
+    @include mobile {
+        height: calc(100vh - (5rem + 2 * $margin-element + 2 * $font-size-subtitle));
+    }
+
+    h1 {
+        margin: 0;
+        padding: $padding-base;
+        font-size: $font-size-title;
+    }
+}
