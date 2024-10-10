@@ -1,49 +1,59 @@
-import { Box } from "@mui/material";
-import { ReCAPTCHA } from "react-google-recaptcha";
-import { SnackbarProvider, useSnackbar } from 'notistack';
+import { Box, Divider } from "@mui/material";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useSnackbar } from 'notistack';
+import PropTypes from 'prop-types';
+import { useState } from "react";
 import './styles/recaptchabox.scss';
 
-const textColor = 'black';
-const backgroundColor = 'white';
+const textColorDefault = '#0d0d0d';
+const backgroundColorDefault = '#f2f2f2';
 
-import PropTypes from 'prop-types';
 
-export const ReCAPTCHAbox = ({ textColor, backgroundColor, stateFunction }) => {
+export const ReCAPTCHAbox = ({ textColor = textColorDefault, backgroundColor = backgroundColorDefault, stateFunction }) => {
 
     const { enqueueSnackbar } = useSnackbar();
+    const [show, setShow] = useState(true);
 
     const handleChange = (value) => {
         if (!value) {
-            enqueueSnackbar('El CAPTCHA no se completó correctamente!', 'error');
+            enqueueSnackbar('El CAPTCHA no se completó correctamente!', { variant: 'error' });
             stateFunction(false);
             return;
         }
         stateFunction(true);
-        enqueueSnackbar('El CAPTCHA se completó correctamente!', 'success');
+        enqueueSnackbar('El CAPTCHA se completó correctamente!', { variant: 'success' });
+        setShow(false);
+        return (value);
     }
 
     const style = {
         color: textColor,
         backgroundColor: backgroundColor
     }
-    
+
     return (
-        <Box
+        show && <Box
             className='recaptcha-overlay'
         >
             {console.log('Se ha renderizado el componente ReCAPTCHAbox')}
             <Box
+                sx={style}
                 className='recaptcha-container'
             >
+                <Box className='subtitleCheck' variant='h2'>Necesitamos realizar un chequeo</Box>
+                <Divider />
                 <ReCAPTCHA
-                    className='recapcha'
+                    className='recaptcha'
                     sitekey="6LcNw1wqAAAAADmjS-QdIGLi1nyb2OC2r4tsYiuK"
-                    onChange={handleChange} />
+                    onChange={(value) => handleChange(value)}
+                />
             </Box>
         </Box>
     )
 }
 
 ReCAPTCHAbox.propTypes = {
+    textColor: PropTypes.string,
+    backgroundColor: PropTypes.string,
     stateFunction: PropTypes.func.isRequired
 };
