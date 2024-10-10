@@ -5,8 +5,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 50%;
+    width: 20rem;
     height: auto;
+    font-family: $font-family-primary;
     margin: $margin-element;
     padding: $padding-base;
     border-radius: 10px;
@@ -14,10 +15,6 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-    //&:hover {
-    //    transform: translateY(-5px);
-    //    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    //}
     .textFieldClass{
         padding: $padding-base;
         width: 100%;
@@ -34,8 +31,15 @@
         position: relative;
         margin: $margin-element 0;
     }
+    .css-1btmbba-MuiButtonBase-root-MuiButton-root{
+        color: $success-color;
+        border-color: $success-color;
+    }
     .submitButton{
         width: 100%;
         margin-bottom: $margin-element;
+    }
+    .css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.Mui-checked, .css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate{
+        color: $success-color;
     }
 }

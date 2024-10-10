@@ -32,23 +32,23 @@ export const ReCAPTCHAbox = ({ textColor = textColorDefault, backgroundColor = b
     }
 
     return (
-        show && <Box
-            className='recaptcha-overlay'
-        >
-            {console.log('Se ha renderizado el componente ReCAPTCHAbox')}
+        show &&
             <Box
-                sx={style}
-                className='recaptcha-container'
+                className='recaptcha-overlay'
             >
-                <Box className='subtitleCheck' variant='h2'>Necesitamos realizar un chequeo</Box>
-                <Divider />
-                <ReCAPTCHA
-                    className='recaptcha'
-                    sitekey="6LcNw1wqAAAAADmjS-QdIGLi1nyb2OC2r4tsYiuK"
-                    onChange={(value) => handleChange(value)}
-                />
+                <Box
+                    sx={style}
+                    className='recaptcha-container'
+                >
+                    <Box className='subtitleCheck' variant='h2'>Necesitamos realizar un chequeo</Box>
+                    <Divider />
+                    <ReCAPTCHA
+                        className='recaptcha'
+                        sitekey="6LcNw1wqAAAAADmjS-QdIGLi1nyb2OC2r4tsYiuK"
+                        onChange={(value) => handleChange(value)}
+                    />
+                </Box>
             </Box>
-        </Box>
     )
 }
 

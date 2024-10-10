@@ -6,11 +6,14 @@ export const useValidateForm = (initialForm = {}) => {
   const onBlurChange = ({ target }) => {
     const { name, value } = target;
     validateField(name, value);
-    console.log(formErrors);
+  };
+
+  const resetFormErrors = () => {
+    setFormErrors(initialForm);
   };
 
   const validateField = (name, value) => {
-    let error = false;
+    let error = "";
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const phoneRegex =
       /^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/;
@@ -62,9 +65,9 @@ export const useValidateForm = (initialForm = {}) => {
     });
   };
 
-  return( 
-    {
+  return {
     ...formErrors,
     onBlurChange,
-  });
+    resetFormErrors,
+  };
 };
