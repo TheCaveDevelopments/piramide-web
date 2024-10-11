@@ -1,13 +1,6 @@
 @import "src/styles/mixins/media-queries";
 @import "src/styles/utilities/styleRules";
 
-.Acordeon {
-
-    .label {
-        color: $primary-color;
-    }
-
-    .content {
-        background-color: $primary-color;
-    }
+.content {
+    padding: 0;
 }

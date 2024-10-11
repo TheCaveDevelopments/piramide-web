@@ -1,14 +1,14 @@
-import './styles/acordeon.scss'
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material"
-import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import { Accordion, AccordionDetails, AccordionSummary } from "./components/config"
+import { Typography } from "@mui/material"
 import { Lista } from "./components"
+import './styles/acordeon.scss'
 
 export const Acordeon = ({
     expanded,
     handleChange,
     elements,
     title = 'Título',
-    panel = '1'
+    panel = 'panel1'
 }) => {
 
 
@@ -16,15 +16,14 @@ export const Acordeon = ({
   return (
       <Accordion
             className="acordeon"
-            expanded={expanded === `panel ${panel}`}
-            onChange={() => handleChange(`panel ${panel}`)}
-            elevation={0}
+            expanded={expanded === panel}
+            onChange={() => handleChange(panel)}
+            slotProps={{ transition: { timeout: 1000 } }}
       >
         <AccordionSummary 
             className="label"
-            aria-controls={`panel${panel}d-content`} 
-            id={`panel${panel}d-header`} 
-            expandIcon={<ArrowForwardIosSharpIcon />}
+            aria-controls={`${panel}d-content`} 
+            id={`${panel}d-header`}
         >
           <Typography>{title}</Typography>
         </AccordionSummary>

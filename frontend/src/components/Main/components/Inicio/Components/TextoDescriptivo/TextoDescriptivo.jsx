@@ -1,45 +1,38 @@
-import CheckIcon from '@mui/icons-material/Check';
+import { useEffect, useState } from "react";
 import { Acordeon } from './components';
 import { Stack } from "@mui/material";
-import { useState } from "react";
+import { elements } from './components/elements';
+
+const siguientePanel = (panel) => {
+  let forwardIndex = elements.findIndex(element => element.panel === panel) + 1;
+  return elements.length > forwardIndex ? elements[forwardIndex].panel : elements[0].panel;
+}
 
 export const TextoDescriptivo = () => {
 
-    const elements = [
-        {
-        id: 0,
-        title: 'DESARROLLO DE SOLUCIONES:',
-        panel: "1",
-        elements: [
-            {id: 0, icon: <CheckIcon />, text: 'Soluciones genéricas.'},
-            {id: 1, icon: <CheckIcon />, text: 'Desarrollos a medida.'},
-            {id: 2, icon: <CheckIcon />, text: 'Integración de sistemas.'},
-        ]},
-        {
-        id: 1,
-        title: 'ASESORAMIENTO PROFESIONAL:',
-        panel: "2",
-        elements: [
-            {id: 0, icon: <CheckIcon />, text: 'Asesoramiento Informático.'},
-            {id: 1, icon: <CheckIcon />, text: 'Asesoramiento Tecnológico.'},
-            {id: 2, icon: <CheckIcon />, text: 'Asesoramiento Administrativo/contable.'},
-        ]},
-        {
-        id: 2,
-        title: 'ESPECIALES:',
-        panel: "3",
-        elements: [
-            {id: 0, icon: <CheckIcon />, text: 'Auditorias.'},
-            {id: 1, icon: <CheckIcon />, text: 'Investigación.'},
-            {id: 2, icon: <CheckIcon />, text: 'Informática Forense.'},
-        ]}
-    ]
-
-    const [expanded, setExpanded] = useState("panel1");
-
-    const handleChange = (panel) => {
-    setExpanded(panel !== expanded ? panel : false);
+  const [expanded, setExpanded] = useState(elements[0].panel);
+  
+  const [fixed, setFixed] = useState(false);
+  
+  const handleChange = (panel) => {
+      if (!fixed) {
+        setExpanded(panel);
+        setFixed(true);
+      } else if (panel !== expanded) {
+        setExpanded(panel);
+      } else {
+        setExpanded(siguientePanel(panel));
+        setFixed(false);
+      }
     };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      !fixed && setExpanded(siguientePanel(expanded));
+    }, 3000);
+
+    return () => clearInterval(interval);
+}, [expanded, fixed]);
 
   return (
     <Stack width={'50%'}>
@@ -47,6 +40,5 @@ export const TextoDescriptivo = () => {
         <Acordeon key={element.id} title={element.title} panel={element.panel} elements={element.elements} expanded={expanded} handleChange={handleChange}/>
       ))}
     </Stack>
-
   );
 };
