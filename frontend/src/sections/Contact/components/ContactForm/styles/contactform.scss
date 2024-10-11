@@ -1,0 +1,45 @@
+@import '../../../../../styles/utilities/styleRules.scss';
+
+.formClass{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20rem;
+    height: auto;
+    font-family: $font-family-primary;
+    margin: $margin-element;
+    padding: $padding-base;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f0f2f5 0%, #d1d9e6 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    .textFieldClass{
+        padding: $padding-base;
+        width: 100%;
+    }
+    .containerFieldClass{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        margin: $margin-element;
+    }
+    .recapcha{
+        position: relative;
+        margin: $margin-element 0;
+    }
+    .css-1btmbba-MuiButtonBase-root-MuiButton-root{
+        color: $success-color;
+        border-color: $success-color;
+    }
+    .submitButton{
+        width: 100%;
+        margin-bottom: $margin-element;
+    }
+    .css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.Mui-checked, .css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate{
+        color: $success-color;
+    }
+}
