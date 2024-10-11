@@ -17,6 +17,7 @@ header {
   justify-content: space-between;
   align-items: center;
   border-bottom: 0.25rem solid black;
+  z-index: 1000;
 
   nav {
     margin: $margin-element;
