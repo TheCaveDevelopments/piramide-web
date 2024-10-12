@@ -8,20 +8,19 @@ export const Acordeon = ({
     handleChange,
     elements,
     title = 'Título',
-    panel = 'panel1'
+    panel = 'panel1',
+    fixed = false
 }) => {
-
-
 
   return (
       <Accordion
-            className="acordeon"
+            className={`acordeon`}
             expanded={expanded === panel}
             onChange={() => handleChange(panel)}
             slotProps={{ transition: { timeout: 1000 } }}
       >
         <AccordionSummary 
-            className="label"
+            className={`label ${fixed ? 'fixed' : ''}`}
             aria-controls={`${panel}d-content`} 
             id={`${panel}d-header`}
         >

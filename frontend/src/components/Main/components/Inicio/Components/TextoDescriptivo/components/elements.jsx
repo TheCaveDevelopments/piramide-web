@@ -5,6 +5,7 @@ export const elements = [
     id: 0,
     title: 'DESARROLLO DE SOLUCIONES:',
     panel: "panel1",
+    fixed: false,
     elements: [
         {id: 0, icon: <CheckIcon />, text: 'Soluciones genéricas.'},
         {id: 1, icon: <CheckIcon />, text: 'Desarrollos a medida.'},
@@ -14,6 +15,7 @@ export const elements = [
     id: 1,
     title: 'ASESORAMIENTO PROFESIONAL:',
     panel: "panel2",
+    fixed: false,
     elements: [
         {id: 0, icon: <CheckIcon />, text: 'Asesoramiento Informático.'},
         {id: 1, icon: <CheckIcon />, text: 'Asesoramiento Tecnológico.'},
@@ -23,6 +25,7 @@ export const elements = [
     id: 2,
     title: 'ESPECIALES:',
     panel: "panel3",
+    fixed: false,
     elements: [
         {id: 0, icon: <CheckIcon />, text: 'Auditorias.'},
         {id: 1, icon: <CheckIcon />, text: 'Investigación.'},

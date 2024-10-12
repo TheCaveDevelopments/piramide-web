@@ -18,11 +18,15 @@ export const TextoDescriptivo = () => {
       if (!fixed) {
         setExpanded(panel);
         setFixed(true);
+        elements[elements.findIndex(element => element.panel === panel)].fixed = true;
       } else if (panel !== expanded) {
+        elements[elements.findIndex(element => element.panel === expanded)].fixed = false;
         setExpanded(panel);
+        elements[elements.findIndex(element => element.panel === panel)].fixed = true;
       } else {
         setExpanded(siguientePanel(panel));
         setFixed(false);
+        elements[elements.findIndex(element => element.panel === panel)].fixed = false;
       }
     };
 
@@ -37,7 +41,14 @@ export const TextoDescriptivo = () => {
   return (
     <Stack width={'50%'}>
       {elements.map((element) => (
-        <Acordeon key={element.id} title={element.title} panel={element.panel} elements={element.elements} expanded={expanded} handleChange={handleChange}/>
+        <Acordeon 
+          key={element.id} 
+          title={element.title} 
+          panel={element.panel} 
+          elements={element.elements} 
+          expanded={expanded} 
+          handleChange={handleChange} 
+          fixed={element.fixed}/>
       ))}
     </Stack>
   );

@@ -18,17 +18,30 @@ export const Accordion = styled((props) => (
   
   export const AccordionSummary = styled((props) => (
     <MuiAccordionSummary
-      expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
+      expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }}/>}
       {...props}
     />
   ))(({ theme }) => ({
     backgroundColor: 'rgba(0, 0, 0, .03)',
     flexDirection: 'row-reverse',
+    '&.fixed' : {
+      color: '#0d6073',
+      '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+        color: '#0d6073',
+        fontSize: '1.2rem',
+        fontWeight: 'bold'
+      },
+      '& .MuiTypography-root': {
+        fontWeight: 'bold',
+      },
+    },
     '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
       transform: 'rotate(90deg)',
     },
     '& .MuiAccordionSummary-content': {
       marginLeft: theme.spacing(1),
+    },
+    '& .MuiTypography-root': {
     },
     ...theme.applyStyles('dark', {
       backgroundColor: 'rgba(255, 255, 255, .05)',
