@@ -1,32 +1,46 @@
 
 import { SnackbarProvider, MaterialDesignContent } from 'notistack';
-import { Header, Footer, Slogan } from './components';
+import { Header, Footer, Slogan, Seccion } from './components';
 import { Contact } from './sections';
-import { styled } from '@mui/system'; // Importa styled de @mui/system
+import { styled, ThemeProvider, createTheme } from '@mui/material/styles'; // Importa styled de @mui/system
 
-const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
+
+const StyledMaterialDesignContent = styled(MaterialDesignContent)(({ theme }) => ({
   '&.notistack-MuiContent-success': {
     backgroundColor: '#0d6073',
+    fontSize: '0.8rem', // Ajusta el tamaño de las palabras
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '1.1rem', // Ajusta el tamaño de las palabras para pantallas más grandes
+    },
   },
   '&.notistack-MuiContent-error': {
-    backgroundColor: '#970C0C',
+    backgroundColor: '#6B5E62',
+    fontSize: '0.8rem', // Ajusta el tamaño de las palabras
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '1.1rem', // Ajusta el tamaño de las palabras para pantallas más grandes
+    },
   },
 }));
 
-function App() {
+const theme = createTheme({});
 
+function App() {
   return (
     <>
-      <Header />
-      <SnackbarProvider maxSnack={1} Components={{
-        success: StyledMaterialDesignContent,
-        error: StyledMaterialDesignContent,
-      }}
-      >
-        <Contact />
-      </SnackbarProvider>
-      <Slogan />
-      <Footer />
+      <ThemeProvider theme={theme}>
+        <Header />
+        <SnackbarProvider maxSnack={1} Components={{
+          success: StyledMaterialDesignContent,
+          error: StyledMaterialDesignContent,
+        }}
+        >
+          <Seccion />
+          <Contact />
+          <Seccion />
+        </SnackbarProvider>
+        <Slogan />
+        <Footer />
+      </ThemeProvider>
     </>
   )
 }

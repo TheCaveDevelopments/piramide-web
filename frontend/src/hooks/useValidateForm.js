@@ -24,7 +24,7 @@ export const useValidateForm = (initialForm = {}) => {
         } else if (value.length < 3) {
           error = "Debe tener al menos 3 caracteres";
         } else if (!value.includes(" ")) {
-          error = "Debe contener un espacio entre nombre y apellido";
+          error = "Ingresar nombre y apellido";
         }
         break;
       case "email":

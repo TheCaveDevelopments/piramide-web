@@ -1,45 +1,81 @@
 @import '../../../../../styles/utilities/styleRules.scss';
+@import '../../../../../styles/mixins/media-queries.scss';
 
 .formClass{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 20rem;
+    width: 80%;
     height: auto;
     font-family: $font-family-primary;
-    margin: $margin-element;
-    padding: $padding-base;
+    margin: $margin-element auto;
+    padding: 2rem;
     border-radius: 10px;
-    background: linear-gradient(135deg, #f0f2f5 0%, #d1d9e6 100%);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid $success-color; // Add a border
+    background: url('../../../../../assets/images/section-background.jpg') no-repeat center center;
+    background-size: cover;
+
+
+    @include mobile {
+        margin: 0 auto;
+        border: none;
+    };
+    
+    h2{
+        font-size: $font-size-subtitle;
+        color: $text-color;
+        border-bottom: 2px solid transparent; // Inicialmente transparente
+        transition: color 0.3s ease; // Transición para el color del texto
+        position: relative; // Necesario para el pseudo-elemento
+        @include mobile {
+            margin-top: 0;
+        };
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px; // Ajusta según el grosor del borde
+            width: 100%;
+            height: 2px; // Ajusta el grosor del subrayado
+            background-color: $success-color;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+          }
+      
+          &:hover::after,
+          &:focus::after,
+          &:active::after {
+            transform: scaleX(1);
+          }
+    }
 
     .textFieldClass{
+        margin-top: 1.2rem;
         padding: $padding-base;
         width: 100%;
-    }
-    .containerFieldClass{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        width: 100%;
-        margin: $margin-element;
-    }
-    .recapcha{
-        position: relative;
-        margin: $margin-element 0;
-    }
-    .css-1btmbba-MuiButtonBase-root-MuiButton-root{
-        color: $success-color;
-        border-color: $success-color;
+        @include mobile {
+            margin-top: .2rem;
+        }
     }
     .submitButton{
         width: 100%;
+        margin-top: 1rem;
         margin-bottom: $margin-element;
+        @include mobile {
+            margin: .2rem 0;
+        };
     }
-    .css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.Mui-checked, .css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate{
+    .checkboxClass{
+        margin-top: 1rem;
+        padding: $padding-base;
+        width: 100%;
+        @include mobile {
+            margin-top: .2rem;
+        };
+    }
+    .MuiButtonBase-root-MuiCheckbox-root.Mui-checked, .MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate{
         color: $success-color;
     }
 }
