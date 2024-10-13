@@ -27,7 +27,7 @@ export const Acordeon = ({
           <Typography>{title}</Typography>
         </AccordionSummary>
         <AccordionDetails
-            className="content"
+            className={`content ${fixed ? 'fixed' : ''}`}
         >
             <Lista elements={elements}/>
         </AccordionDetails>

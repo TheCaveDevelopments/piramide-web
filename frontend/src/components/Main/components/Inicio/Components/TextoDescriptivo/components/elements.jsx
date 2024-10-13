@@ -17,9 +17,9 @@ export const elements = [
     panel: "panel2",
     fixed: false,
     elements: [
-        {id: 0, icon: <CheckIcon />, text: 'Asesoramiento Informático.'},
-        {id: 1, icon: <CheckIcon />, text: 'Asesoramiento Tecnológico.'},
-        {id: 2, icon: <CheckIcon />, text: 'Asesoramiento Administrativo/contable.'},
+        {id: 0, icon: <CheckIcon />, text: 'Informático.'},
+        {id: 1, icon: <CheckIcon />, text: 'Tecnológico.'},
+        {id: 2, icon: <CheckIcon />, text: 'Administrativo/contable.'},
     ]},
     {
     id: 2,

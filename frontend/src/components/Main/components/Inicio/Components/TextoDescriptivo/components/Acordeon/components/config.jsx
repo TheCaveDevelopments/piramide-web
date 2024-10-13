@@ -7,12 +7,14 @@ import { styled } from '@mui/material';
 export const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
   ))(({ theme }) => ({
-    border: `1px solid ${theme.palette.divider}`,
+    backgroundColor: 'transparent',
+    width: '100%',
     '&:not(:last-child)': {
       borderBottom: 0,
     },
     '&::before': {
       display: 'none',
+      backgroundColor: 'transparent',
     },
   }));
   
@@ -22,14 +24,11 @@ export const Accordion = styled((props) => (
       {...props}
     />
   ))(({ theme }) => ({
-    backgroundColor: 'rgba(0, 0, 0, .03)',
     flexDirection: 'row-reverse',
     '&.fixed' : {
-      color: '#0d6073',
+      color: '#3f4b8c',
       '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-        color: '#0d6073',
-        fontSize: '1.2rem',
-        fontWeight: 'bold'
+        color: '#3f4b8c',
       },
       '& .MuiTypography-root': {
         fontWeight: 'bold',
@@ -50,5 +49,4 @@ export const Accordion = styled((props) => (
   
   export const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     padding: 0,
-    borderTop: '1px solid rgba(0, 0, 0, .125)',
   }));

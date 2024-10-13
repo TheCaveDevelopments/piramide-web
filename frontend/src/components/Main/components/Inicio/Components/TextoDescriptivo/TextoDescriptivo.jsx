@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { Acordeon } from './components';
 import { Stack } from "@mui/material";
 import { elements } from './components/elements';
+import './styles/textoDescriptivo.scss';
 
 const siguientePanel = (panel) => {
   let forwardIndex = elements.findIndex(element => element.panel === panel) + 1;
   return elements.length > forwardIndex ? elements[forwardIndex].panel : elements[0].panel;
 }
 
-export const TextoDescriptivo = () => {
+export const TextoDescriptivo = ({ isMobile }) => {
 
   const [expanded, setExpanded] = useState(elements[0].panel);
   
@@ -39,7 +40,7 @@ export const TextoDescriptivo = () => {
 }, [expanded, fixed]);
 
   return (
-    <Stack width={'50%'}>
+    <Stack width={isMobile ? '100%' : '50%'}>
       {elements.map((element) => (
         <Acordeon 
           key={element.id} 
