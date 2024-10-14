@@ -1,0 +1,82 @@
+@import 'src/styles/utilities/styleRules.scss';
+@import "src/styles/mixins/media-queries";
+
+.Inicio {
+    color: $text-color;
+    height: calc(100vh - (5rem + $margin-element + $font-size-subtitle));
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: -2.5%;
+        left: -2.5%;
+        width: 105%;
+        height: 105%;
+        background-image: url('https://ss-static-01.esmsv.com/id/134567/galeriaimagenes/obtenerimagen/?id=22&tipoEscala=stretch&width=1920&height=1080');
+        background-position: center;
+        filter: blur(5px); // Aplica el desenfoque
+        z-index: -1; // Asegúrate de que esta capa esté detrás del contenido
+    }
+
+    .Bloque {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        height: 75%;
+        width: 100%;
+        max-width: 65rem;
+        padding: 0 $margin-element;
+        position: relative;
+        text-align: center;
+        z-index: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $secondary-color;
+            opacity: 0.60;
+            z-index: -1;
+        }
+
+        .Contenido {
+            width: 100%;
+            height: 80%;
+            max-width: 50rem;
+            justify-content: center;
+        }
+    }
+
+    @include desktop {
+        .Bloque {
+            width: 75%;
+        }
+    }
+        
+    @include mobile {
+        height: calc(100vh - (5rem + $margin-element + 2 * $font-size-subtitle));
+
+        .Bloque {
+            height: 100%;
+            justify-content: flex-start;
+
+            .Contenido {
+                justify-content: flex-start;
+            }
+        }
+    }
+    
+    @media (max-height: 767px) {
+        .Bloque {
+            height: 100%;
+        }
+    }
+}
