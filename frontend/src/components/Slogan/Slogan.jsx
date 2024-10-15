@@ -6,6 +6,6 @@ export const Slogan = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
   return (
-        <p className='slogan'>Más de 30 años brindando soluciones{ isMobile ? <br/> : ' ' }informáticas para el mercado</p>
+        <p className='slogan'>30 años brindando soluciones{ isMobile ? <br/> : ' ' }informáticas para el mercado</p>
   )
 }
