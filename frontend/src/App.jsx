@@ -1,7 +1,6 @@
 
 import { SnackbarProvider, MaterialDesignContent } from 'notistack';
-import { Header, Footer, Slogan, Seccion } from './components';
-import { Contact } from './sections';
+import { Header, Footer, Slogan, Main } from './components';
 import { styled, ThemeProvider, createTheme } from '@mui/material/styles'; // Importa styled de @mui/system
 
 
@@ -39,14 +38,12 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <Header />
+        <Main />
         <SnackbarProvider maxSnack={1} Components={{
           success: StyledMaterialDesignContent,
           error: StyledMaterialDesignContent,
         }}
         >
-          <Seccion />
-          <Contact />
-          <Seccion />
         </SnackbarProvider>
         <Slogan />
         <Footer />

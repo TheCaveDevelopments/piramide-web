@@ -1,12 +1,11 @@
 import { Button, Checkbox, FormControlLabel, TextField, Typography } from "@mui/material";
-import { ReCAPTCHAbox } from "../../../../components";
 import { makeStyles, useTheme } from '@mui/styles';
 import { useState } from "react";
-import { useForm, useValidateForm } from "../../../../hooks";
-import { ThemeContext } from "../../../../components";
 import { useSnackbar } from "notistack";
-import { sendEmail } from "../../../../services/EmailSender/sendEmail";
 import './styles/contactForm.scss';
+import { ReCAPTCHAbox, ThemeContext } from "../../../../";
+import { useForm, useValidateForm } from "../../../../../hooks";
+import { sendEmail } from "../../../../../services/EmailSender/sendEmail";
 
 const useStyles = makeStyles((theme) => ({
     textField: {
