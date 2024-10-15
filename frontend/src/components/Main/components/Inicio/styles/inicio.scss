@@ -3,7 +3,7 @@
 
 .Inicio {
     color: $text-color;
-    height: calc(100vh - (5rem + $margin-element + $font-size-subtitle));
+    height: calc(100vh - (5.75rem + $margin-element + $font-size-subtitle));
     position: relative;
     overflow: hidden;
     width: 100vw;
@@ -62,7 +62,7 @@
     }
         
     @include mobile {
-        height: calc(100vh - (5rem + $margin-element + 2 * $font-size-subtitle));
+        height: calc(100vh - (5.75rem + $margin-element + 2 * $font-size-subtitle));
 
         .Bloque {
             height: 100%;
