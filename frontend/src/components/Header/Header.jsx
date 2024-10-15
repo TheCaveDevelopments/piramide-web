@@ -6,7 +6,7 @@ export const Header = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
     return (
         <header>
-            <Logo source="piramide-logo-sintexto.png" />
+            <Logo source="9.svg" />
             <nav>
                 {isMobile ? <SwipeableTemporaryDrawer /> :
                     <NavBar />}
