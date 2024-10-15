@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material"
+import { Box } from "@mui/material"
 import { Inicio } from "./components"
 import './styles/main.scss'
 
