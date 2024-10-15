@@ -1,0 +1,1 @@
+export { ProdPrincipal } from './ProdPrincipal/ProdPrincipal'

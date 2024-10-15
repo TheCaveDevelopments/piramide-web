@@ -1,0 +1,17 @@
+@import 'src/styles/utilities/styleRules.scss';
+@import "src/styles/mixins/media-queries";
+
+.Carta {
+    width: 80%;
+
+    .Media {
+        width: 100%;
+    }
+
+    .Descripcion {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
