@@ -83,6 +83,7 @@ const initialFormError = {
 export const ContactForm = () => {
     const theme = useTheme(); // Obtén el tema
     const classes = useStyles(theme);
+    
     const { enqueueSnackbar } = useSnackbar();
     const [check, setCheck] = useState(false);
     const [displayCAPTCHA, setDisplayCAPTCHA] = useState(false);
