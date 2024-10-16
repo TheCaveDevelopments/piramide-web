@@ -28,10 +28,8 @@ li {
     }
 
     font-size: $font-size-subtitle;
-    @include mobile {
-      font-size: $fontSizeMobile;
-    }
-    @include tablet {
+
+    @media screen and (max-width: 1063px) {
       font-size: $fontSizeTablet;
     }
   }

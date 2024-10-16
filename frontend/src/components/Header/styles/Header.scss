@@ -15,8 +15,8 @@ header {
   background-color: $primary-color;
   display: flex;
   justify-content: space-between;
+  flex-wrap: nowrap;
   align-items: center;
-  border-bottom: 0.25rem solid black;
   z-index: 1000;
 
   nav {
@@ -26,7 +26,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    @include mobile {
+    
+    @media screen and (max-width: 1023px) {
+      font-size: $fontSizeTablet;
       justify-content: end;
     }
   }

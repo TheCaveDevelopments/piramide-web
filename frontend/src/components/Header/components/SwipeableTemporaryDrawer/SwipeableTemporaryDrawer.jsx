@@ -10,6 +10,7 @@ import { makeStyles } from '@mui/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import { navOptions } from '../variables';
 import './styles/swipeableTemporaryDrawer.scss';
+import { handleScroll } from '../../../../utilities';
 
 const useStyles = makeStyles(() => ({
   menuIcon: {
@@ -42,7 +43,11 @@ export const SwipeableTemporaryDrawer = () => {
       <List>
         {navOptions.map((option) => (
           <ListItem className='listItem' key={option.id} disablePadding>
-            <ListItemButton>
+            <ListItemButton
+              component={'a'}
+              to={option.path}
+              onClick={(e) => handleScroll(e, option.path.substring(1))}
+            >
               <ListItemText className='listItemText' primary={option.name} />
             </ListItemButton>
           </ListItem>
