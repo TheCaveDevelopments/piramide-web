@@ -3,9 +3,9 @@ import { makeStyles, useTheme } from '@mui/styles';
 import { useState } from "react";
 import { useSnackbar } from "notistack";
 import './styles/contactForm.scss';
-import { ReCAPTCHAbox, ThemeContext } from "../../../../";
-import { useForm, useValidateForm } from "../../../../../hooks";
-import { sendEmail } from "../../../../../services/EmailSender/sendEmail";
+import { ReCAPTCHAbox, ThemeContext } from "../../../../..";
+import { useForm, useValidateForm } from "../../../../../../hooks";
+import { sendEmail } from "../../../../../../services/EmailSender/sendEmail";
 
 const useStyles = makeStyles((theme) => ({
     textField: {

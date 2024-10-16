@@ -1,0 +1,1 @@
+export { Acordeon } from './Acordeon/Acordeon';

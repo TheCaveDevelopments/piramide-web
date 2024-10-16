@@ -3,7 +3,6 @@ import { SnackbarProvider, MaterialDesignContent } from 'notistack';
 import { Header, Footer, Slogan, Main } from './components';
 import { styled, ThemeProvider, createTheme } from '@mui/material/styles'; // Importa styled de @mui/system
 
-
 const StyledMaterialDesignContent = styled(MaterialDesignContent)(({ theme }) => ({
   '&.notistack-MuiContent-success': {
     backgroundColor: '#0d6073',
@@ -36,6 +35,7 @@ const theme = createTheme({
 function App() {
   return (
     <>
+
       <ThemeProvider theme={theme}>
         <Header />
         <Main />

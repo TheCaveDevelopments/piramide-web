@@ -1,0 +1,88 @@
+@import "../../../../../styles/utilities/styleRules.scss";
+
+.contact {
+  min-height: calc(
+    100vh - 5.25rem - $margin-element - 2 * $font-size-subtitle
+  ); 
+  height: auto;
+
+  .contactPaper{
+    background: url("contact-background.avif") no-repeat center center;
+    margin: 1rem;
+    width: 70%;
+    background-size: cover;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    &:hover {
+      box-shadow: 0 12px 2rem $success-color;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    filter: blur(5px);
+    z-index: -1;
+  }
+  opacity: 0.8;
+
+  .verticalContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-direction: column;
+    height: 100%;
+    .contactTitle {
+        position: relative;
+        border-bottom: 2px solid transparent;
+        transition: color 0.3s ease;
+        width: fit-content;
+        margin-top: 2rem;
+        font-family: $font-family-primary;
+        font-size: $font-size-title;
+        color: $text-color;
+      @include mobile {
+        font-size: $font-size-subtitle;
+      }
+      @include tablet {
+        font-size: $font-size-title;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px; 
+        width: 100%;
+        height: 2px;
+        background-color: $success-color;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+  
+      &:hover::after,
+      &:focus::after,
+      &:active::after {
+        transform: scaleX(1);
+      }
+    }
+    @include mobile {
+      gap: 0;
+    }
+    @include tablet {
+      gap: 0;
+    }
+  }
+
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}

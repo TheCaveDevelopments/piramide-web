@@ -1,9 +1,11 @@
 import { Box } from "@mui/material"
-import { Contact } from "./Contact/Contact"
+import { Inicio, Contact } from "./components"
+import './styles/main.scss'
 
 export const Main = () => {
   return (
     <Box component={'main'}>
+        <Inicio />
         <Contact />
     </Box>
   )
