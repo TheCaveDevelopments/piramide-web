@@ -12,6 +12,10 @@
     display: flex;
     justify-content: center;
     color: $text-color;
+    & a:hover {
+      color: $text-color;
+      font-size: 1.65rem;
+    }
 }
 .menuIcon{
     color: $secondary-color;
