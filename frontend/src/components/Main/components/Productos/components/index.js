@@ -1,1 +1,1 @@
-export { ProdPrincipal } from './ProdPrincipal/ProdPrincipal'
+export { Mostrador } from './Mostrador/Mostrador'

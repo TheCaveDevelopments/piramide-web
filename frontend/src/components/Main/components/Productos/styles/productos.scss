@@ -1,0 +1,6 @@
+@import 'src/styles/utilities/styleRules.scss';
+@import "src/styles/mixins/media-queries";
+
+.Productos{
+    height: calc(100vh - (5rem + $margin-element + $font-size-subtitle));
+}

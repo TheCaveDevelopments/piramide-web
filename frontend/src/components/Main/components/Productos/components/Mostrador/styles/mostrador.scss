@@ -1,0 +1,21 @@
+@import 'src/styles/utilities/styleRules.scss';
+@import "src/styles/mixins/media-queries";
+
+.Mostrador {
+    width: 80%;
+    height: 100%;
+
+    .Descripcion {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .VerDescripcion{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
