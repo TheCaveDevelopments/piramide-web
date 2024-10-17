@@ -356,8 +356,3 @@ template {
 [hidden] {
   display: none;
 }
-
-/* Ocultar la barra de desplazamiento en navegadores WebKit */
-body::-webkit-scrollbar {
-  display: none;
-}

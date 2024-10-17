@@ -34,6 +34,7 @@ export const SwipeableTemporaryDrawer = () => {
     setState(open);
   };
 
+
   const list = () => (
     <Box
       className="drawerContainer"
