@@ -12,7 +12,7 @@ export const Contact = () => {
       <Box component={'section'} id='contact' className='contact'>
         <Paper elevation={5} className='contactPaper'>
           <Grid container spacing={5}>
-            <Grid item size={{ xs: 12, md: 6 }}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Box variant='div' className='verticalContainer'>
                 {!isDesktop &&
                   <Typography variant='h2' className='contactTitle'>Contáctanos!</Typography>
@@ -25,7 +25,7 @@ export const Contact = () => {
                 <VerticalLinearStepper />
               </Box>
             </Grid>
-            <Grid item size={{ xs: 12, md: 6 }}>
+            <Grid size={{ xs: 12, md: 6 }}>
               {isMobile && <Divider variant='middle' />}
               <ContactForm />
             </Grid>

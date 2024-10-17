@@ -2,6 +2,7 @@
 import { SnackbarProvider, MaterialDesignContent } from 'notistack';
 import { Header, Footer, Slogan, Main } from './components';
 import { styled, ThemeProvider, createTheme } from '@mui/material/styles'; // Importa styled de @mui/system
+import { Consult } from './services/EmailSender/emails';
 
 const StyledMaterialDesignContent = styled(MaterialDesignContent)(({ theme }) => ({
   '&.notistack-MuiContent-success': {

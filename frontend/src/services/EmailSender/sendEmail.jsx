@@ -2,12 +2,10 @@ import ReactDOMServer from "react-dom/server";
 import { Consult } from "./emails"; // Asegúrate de importar tu componente de email
 
 const renderEmailTemplate = (formData) => {
-  console.log("formData passed to renderEmailTemplate:", formData);
   return ReactDOMServer.renderToString(<Consult {...formData} />);
 };
 
 export async function sendEmail(formData) {
-  console.log("formData passed to sendEmail:", formData);
   const emailHtml = renderEmailTemplate(formData);
 
   const payload = {

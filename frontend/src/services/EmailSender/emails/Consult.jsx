@@ -4,7 +4,7 @@ import {
   Head,
   Heading,
   Html,
-  Link,
+/*   Img, */
   Preview,
   Section,
   Text,
@@ -73,11 +73,6 @@ const paragraph = {
   marginBottom: '10px',
 };
 
-const link = {
-  color: '#007bff',
-  textDecoration: 'none',
-};
-
 export const Consult = ({ completename, email, phone, subject, consult }) => {
   return (
     <Html>
@@ -85,6 +80,10 @@ export const Consult = ({ completename, email, phone, subject, consult }) => {
       <Preview>Consulta de cliente - Piramide</Preview>
       <Body style={main}>
         <Container style={container}>
+{/*           <Img src="https://www.imghippo.com/i/6dwe81729171815.png"
+           alt="Piramide" width="50%" 
+           style={{ display: 'block', margin: '0 auto', marginBottom: '20px' }}
+           /> */}
           <Heading style={codeTitle}>Nueva Consulta de Cliente</Heading>
           <Text style={codeDescription}>
             Hola equipo,
