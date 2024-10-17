@@ -35,15 +35,14 @@ const theme = createTheme({
 function App() {
   return (
     <>
-
       <ThemeProvider theme={theme}>
         <Header />
-        <Main />
         <SnackbarProvider maxSnack={1} Components={{
           success: StyledMaterialDesignContent,
           error: StyledMaterialDesignContent,
         }}
         >
+        <Main />
         </SnackbarProvider>
         <Slogan />
         <Footer />

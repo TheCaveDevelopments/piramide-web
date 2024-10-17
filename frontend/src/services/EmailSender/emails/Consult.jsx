@@ -1,16 +1,16 @@
 import {
-    Body,
-    Container,
-    Head,
-    Heading,
-    Html,
-    Link,
-    Preview,
-    Section,
-    Text,
-    Button,
-  } from "@react-email/components";
-  
+  Body,
+  Container,
+  Head,
+  Heading,
+  Html,
+  Link,
+  Preview,
+  Section,
+  Text,
+  Button,
+} from "@react-email/components";
+
 const main = {
   backgroundColor: '#f4f4f4',
   fontFamily: 'Arial, sans-serif',
@@ -58,7 +58,7 @@ const buttonContainer = {
 };
 
 const button = {
-  backgroundColor: '#007bff',
+  backgroundColor: '#3f4b8c',  // Cambiado el color del botón
   color: '#ffffff',
   padding: '10px 20px',
   borderRadius: '5px',
@@ -85,7 +85,6 @@ export const Consult = ({ completename, email, phone, subject, consult }) => {
       <Preview>Consulta de cliente - Piramide</Preview>
       <Body style={main}>
         <Container style={container}>
-          <img src="piramide-logo-circular.png" alt="Piramide Logo" style={{ width: '100px', margin: '0 auto' }} />
           <Heading style={codeTitle}>Nueva Consulta de Cliente</Heading>
           <Text style={codeDescription}>
             Hola equipo,
@@ -101,17 +100,13 @@ export const Consult = ({ completename, email, phone, subject, consult }) => {
             {consult && <Text style={infoStyle}><strong>Consulta:</strong> {consult}</Text>}
           </Section>
           <Section style={buttonContainer}>
-            <Button href={`mailto:${email}`} style={button}>
+            <Button
+              href={`mailto:${email}?subject=${encodeURIComponent(subject)}`}
+              style={button}>
               Responder Consulta
             </Button>
           </Section>
           <Text style={paragraph}>Gracias por tu atención.</Text>
-          <Text style={paragraph}>
-            Equipo de{" "}
-            <Link href="https://www.piramide.com" style={link}>
-              Piramide
-            </Link>
-          </Text>
         </Container>
       </Body>
     </Html>

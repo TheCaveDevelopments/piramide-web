@@ -8,6 +8,7 @@ export const NavBar = () => {
             {navOptions.map((option) => (
                 <li key={option.id}>
                     <a
+                        className='nav-link'
                         href={option.path}
                         onClick={(e) => handleScroll(e, option.path.substring(1))}
                     >

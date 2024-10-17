@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     '& .MuiStepLabel-label.Mui-active': {
-      color: '#0d6073',
+      color: '#3f4b8c',
       fontWeight: 'bold' // Color para el StepLabel activo
     },
   },
@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'gray', // Color por defecto de los iconos de los pasos
   },
   stepIconActive: {
-    color: '#0d6073', // Color de los iconos de los pasos activos
+    color: '#3f4b8c', // Color de los iconos de los pasos activos
   },
   icon: {
     '& .MuiSvgIcon-root': {

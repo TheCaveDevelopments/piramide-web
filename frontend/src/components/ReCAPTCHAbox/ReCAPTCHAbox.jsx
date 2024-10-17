@@ -2,17 +2,43 @@ import { Box, Divider } from "@mui/material";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useSnackbar } from 'notistack';
 import PropTypes from 'prop-types';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './styles/recaptchabox.scss';
 
 const textColorDefault = '#0d0d0d';
 const backgroundColorDefault = '#f2f2f2';
 
-
 export const ReCAPTCHAbox = ({ textColor = textColorDefault, backgroundColor = backgroundColorDefault, stateFunction }) => {
 
     const { enqueueSnackbar } = useSnackbar();
     const [show, setShow] = useState(true);
+
+    useEffect(() => {
+        const disableScrollAndLinks = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        };
+
+        if (show) {
+            document.body.style.overflow = 'hidden';
+
+            document.querySelectorAll('.nav-link').forEach((link) => {
+                console.log(link);
+                link.addEventListener('click', disableScrollAndLinks);
+            });
+        } else {
+            document.body.style.overflow = '';
+            document.querySelectorAll('.nav-link').forEach((link) => {
+                link.removeEventListener('click', disableScrollAndLinks);
+            });
+        }
+        return () => {
+            document.body.style.overflow = '';
+            document.querySelectorAll('.nav-link').forEach((link) => {
+                link.removeEventListener('click', disableScrollAndLinks);
+            });
+        };
+    }, [show]);
 
     const handleChange = (value) => {
         if (!value) {
@@ -23,7 +49,7 @@ export const ReCAPTCHAbox = ({ textColor = textColorDefault, backgroundColor = b
         stateFunction(true);
         enqueueSnackbar('El CAPTCHA se completó correctamente!', { variant: 'success' });
         setShow(false);
-        return (value);
+        return value;
     }
 
     const style = {
@@ -32,7 +58,7 @@ export const ReCAPTCHAbox = ({ textColor = textColorDefault, backgroundColor = b
     }
 
     return (
-        show &&
+        show && (
             <Box
                 className='recaptcha-overlay'
             >
@@ -49,7 +75,8 @@ export const ReCAPTCHAbox = ({ textColor = textColorDefault, backgroundColor = b
                     />
                 </Box>
             </Box>
-    )
+        )
+    );
 }
 
 ReCAPTCHAbox.propTypes = {

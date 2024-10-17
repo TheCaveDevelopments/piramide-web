@@ -2,6 +2,7 @@ import { Button, Checkbox, FormControlLabel, TextField, Typography } from "@mui/
 import { makeStyles, useTheme } from '@mui/styles';
 import { useState } from "react";
 import { useSnackbar } from "notistack";
+import Swal from 'sweetalert2'
 import './styles/contactForm.scss';
 import { ReCAPTCHAbox, ThemeContext } from "../../../../..";
 import { useForm, useValidateForm } from "../../../../../../hooks";
@@ -56,12 +57,12 @@ const useStyles = makeStyles((theme) => ({
     },
     checkbox: {
         '&.Mui-checked': {
-          color: '#0d6073 !important', // Cambia el color del checkbox marcado
+            color: '#3f4b8c !important', // Cambia el color del checkbox marcado
         },
         '&.MuiCheckbox-indeterminate': {
-          color: '#0d6073 !important', // Cambia el color del checkbox indeterminado
+            color: '#3f4b8c !important', // Cambia el color del checkbox indeterminado
         },
-      },
+    },
 }));
 
 const initialForm = {
@@ -82,7 +83,7 @@ const initialFormError = {
 export const ContactForm = () => {
     const theme = useTheme(); // Obtén el tema
     const classes = useStyles(theme);
-    
+
     const { enqueueSnackbar } = useSnackbar();
     const [check, setCheck] = useState(false);
     const [displayCAPTCHA, setDisplayCAPTCHA] = useState(false);
@@ -104,29 +105,33 @@ export const ContactForm = () => {
             enqueueSnackbar('Debe tildar el checkbox para continuar', { variant: 'error' });
             return;
         }
-        
+
         setCheck(false);
         setDisplayCAPTCHA(false);
-        
+
         resetForm();
         resetFormErrors();
-        
+
         const formData = { completename, email, phone, subject, consult };
         try {
             await sendEmail(formData);
-            enqueueSnackbar('Se enviado su consulta, nos comunicaremos a la brevedad!', { variant: 'success' });
-            // Aquí puedes manejar el resultado exitoso, como mostrar un mensaje al usuario
+            Swal.fire({
+                icon: 'success',
+                title: 'Consulta realizada',
+                text: 'Se ha enviado su consulta, nos comunicaremos a la brevedad!',
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: '#3f4b8c'
+            });
         } catch (error) {
             console.error("No se puedo enviar su consulta!", error);
-            // Aquí puedes manejar el error, como mostrar un mensaje de error al usuario
-          }
-
+            enqueueSnackbar('No se pudo realizar su consulta. Intente más tarde!', { variant: 'error' })
+        }
     }
 
     return (
         <ThemeContext>
             <form onSubmit={(event) => handleSubmit(event)} className='formClass'>
-                <Typography variant='h2' className='contactFormTitle'>Completa el formulario</Typography>
+                <Typography variant='h2' className='contactFormTitle'>Rellena el formulario</Typography>
                 <TextField
                     error={!!errorcompletename.trim()}
                     color={errorcompletename ? 'error' : 'success'}

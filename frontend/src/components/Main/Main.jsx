@@ -5,8 +5,8 @@ import './styles/main.scss'
 export const Main = () => {
   return (
     <Box component={'main'}>
-        <Inicio />
-        <Contact />
+        <Inicio id="home" />
+        <Contact id="contact" />
     </Box>
   )
 }

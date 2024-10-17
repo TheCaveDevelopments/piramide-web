@@ -6,14 +6,22 @@ import { useMediaQuery } from 'react-responsive';
 
 export const Contact = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   return (
     <>
       <Box component={'section'} id='contact' className='contact'>
-        <Paper elevation={3} className='contactPaper'>
+        <Paper elevation={5} className='contactPaper'>
           <Grid container spacing={5}>
             <Grid item size={{ xs: 12, md: 6 }}>
               <Box variant='div' className='verticalContainer'>
-                <Typography variant='h1' className='contactTitle'>Contáctanos!</Typography>
+                {!isDesktop &&
+                  <Typography variant='h2' className='contactTitle'>Contáctanos!</Typography>
+                }
+                {
+                  !isMobile &&
+                  <img src='1.svg' alt='contact' className='contactImage' />
+                }
+
                 <VerticalLinearStepper />
               </Box>
             </Grid>
