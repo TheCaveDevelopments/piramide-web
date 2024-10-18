@@ -1,8 +1,8 @@
 import { Box, Divider, Paper, Typography } from '@mui/material'
 import { ContactForm, VerticalLinearStepper } from './components'
+import { useMediaQuery } from 'react-responsive';
 import Grid from '@mui/material/Grid2';
 import './styles/contact.scss'
-import { useMediaQuery } from 'react-responsive';
 
 export const Contact = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
