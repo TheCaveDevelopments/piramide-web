@@ -44,9 +44,9 @@ function App() {
         >
           <Main />
         </SnackbarProvider>
+        <SpeedDialTool />
         <Slogan />
         <Footer />
-        <SpeedDialTool />
       </ThemeProvider>
     </>
   )
