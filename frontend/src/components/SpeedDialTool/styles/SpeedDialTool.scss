@@ -1,0 +1,10 @@
+@import "../../../styles/utilities/styleRules.scss";
+
+.speedDial {
+  .MuiButtonBase-root {
+    background-color: $primary-color;
+  }
+  .MuiButtonBase-root:hover {
+    background-color: $success-color;
+  }
+}

@@ -1,6 +1,6 @@
 
 import { SnackbarProvider, MaterialDesignContent } from 'notistack';
-import { Header, Footer, Slogan, Main } from './components';
+import { Header, Footer, Slogan, Main, SpeedDialTool } from './components';
 import { styled, ThemeProvider, createTheme } from '@mui/material/styles'; // Importa styled de @mui/system
 
 const StyledMaterialDesignContent = styled(MaterialDesignContent)(({ theme }) => ({
@@ -42,10 +42,11 @@ function App() {
           error: StyledMaterialDesignContent,
         }}
         >
-        <Main />
+          <Main />
         </SnackbarProvider>
         <Slogan />
         <Footer />
+        <SpeedDialTool />
       </ThemeProvider>
     </>
   )
