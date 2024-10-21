@@ -1,0 +1,1 @@
+export { CardActionAreaComponent } from './CardActionAreaComponent/CardActionAreaComponent';

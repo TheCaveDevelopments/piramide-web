@@ -1,43 +1,123 @@
 @import "../../../../../styles/utilities/styleRules.scss";
+@import "../../../../../styles/mixins/media-queries.scss";
 
 .about-company {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100vw;
-  padding: $padding-base;
+  height: fit-content;
+  width: 100%;
+  padding: $padding-base 0;
   background-color: $secondary-color;
 }
 
 .company-info {
-
   width: 100%;
-  padding: 20px;
 
-  border-radius: 10px; /* Bordes redondeados */
-  .button-container{
-    
+  .info-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: $padding-base;
-    margin-top: $margin-element;
-
-    & .MuiButtonBase-root {
-      background-color: $primary-color;
-      color: $secondary-color;
-      border: none;
-      padding: 10px 20px;
-      margin: 0 $margin-element;
-      border-radius: 5px;
-      font-size: $font-size-base;
+    justify-content: center;
+    .title-text {
+      text-align: center;
+      font-size: 3rem;
+      color: $primary-color;
       font-family: $font-family-primary;
-      cursor: pointer;
-      transition: all 0.3s;
-      &:hover {
-        background-color: $success-color;
+      margin: $margin-element 0;
+      border-bottom: 2px solid transparent; // Inicialmente transparente
+      transition: color 0.3s ease; // Transición para el color del texto
+      position: relative; // Necesario para el pseudo-elemento
+      @include tablet {
+        font-size: 2rem;
+        text-decoration: underline;
+        text-decoration-color: $success-color;
       }
+      @include mobile {
+        font-size: 1.5rem; 
+        text-decoration: underline;
+        text-decoration-color: $success-color;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px; // Ajusta según el grosor del borde
+        width: 100%;
+        height: 2px; // Ajusta el grosor del subrayado
+        background-color: $success-color;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+      &:hover::after,
+      &:focus::after,
+      &:active::after {
+        transform: scaleX(1);
+      }
+    }
+    .info-text-map {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      gap: $margin-element;
+      .info-text {
+        font-family: $font-family-secondary;
+        text-align: justify;
+        font-size: $font-size-base;
+        color: $text-color;
+        @include tablet {
+          font-size: medium;
+        }
+        @include mobile {
+          font-size: small;
+        }
+      }
+      .iframe-container {
+        margin-right: $margin-element;
+        height: 100%;
+        width: 100%;
+        iframe {
+          border: 0;
+          position: relative;
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+    .quote {
+      font-style: italic;
+      color: $primary-color;
+      border-left: 4px solid $success-color;
+      padding: $padding-base;
+      margin: $margin-element;
+      font-family: $font-family-secondary;
+
+      font-size: 2rem;
+      @include tablet {
+        font-size: $font-size-subtitle;
+      }
+      @include mobile {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .buttons-nav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center; // Asegura que todas las cartas tengan el mismo ancho
+    align-items: stretch;
+    h3 {
+      font-size: $font-size-subtitle;
+      color: $primary-color;
+      font-family: $font-family-primary;
+      margin-right: $margin-element;
+    }
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
     }
   }
 }
@@ -65,15 +145,26 @@
 }
 
 .memberships {
+  margin: $margin-element;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
+  h5 {
+    font-size: 1.5rem;
+    color: $primary-color;
+    font-family: $font-family-primary;
+    margin-right: 10px;
+    @include mobile {
+      font-size: 1rem;
+    }
+  }
   .img-members {
     padding: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
     img {
       width: 15rem;
       height: auto;
@@ -81,6 +172,12 @@
       margin-right: 10px;
       box-shadow: 0 4px 8px $tertiary-color; /* Efecto de elevación */
       border-radius: 2px; /* Bordes redondeados */
+      @include tablet {
+        width: 10rem;
+      }
+      @include mobile {
+        width: 7rem;
+      }
     }
   }
 }

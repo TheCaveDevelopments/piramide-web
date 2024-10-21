@@ -1,37 +1,71 @@
-import { Box, Button, Typography } from "@mui/material"
-import CategoryIcon from '@mui/icons-material/Category';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import { Box, Divider, Typography } from "@mui/material"
+import { CardActionAreaComponent } from "./components";
 import './styles/AboutUs.scss'
+
+const navButtons = [
+    {
+        id: 1,
+        title: 'Productos',
+        href: '#products',
+        img: 'products.png'
+    },
+    {
+        id: 2,
+        title: 'Servicios',
+        href: '#services',
+        img: 'services.jpg'
+    },
+    {
+        id: 3,
+        title: 'Contáctenos',
+        href: '#contact',
+        img: 'contact.jpg'
+    }
+]
 
 export const AboutUs = () => {
     return (
         <>
             <Box id="aboutus" component="section" className="about-company">
                 <Box className="company-info">
-                    <Typography variant="h2" component="h2" gutterBottom>
-                        <strong>Nuestra empresa</strong> nace formalmente en el año <strong>1995</strong>
-                    </Typography>
-                    <Typography variant="body1">
-                        Con objetivos muy claros, que son brindar el mejor y más completo servicio para que nuestros clientes se sientan respaldados. Atendiendo
-                        en la provincia de Entre Ríos principalmente las ciudades de Colón, San José, Villa Elisa y Concepción del Uruguay.
-                    </Typography>
-                    <Typography variant="body1">
-                        Estamos en constante capacitación y adquiriendo nuevas y mejores herramientas para ofrecer la más óptima solución.
-                    </Typography>
-                    <Typography variant="body1">
-                        Utilizamos metodologías ágiles de desarrollo de software (Programación Extrema y RAD) y nos basamos en los principios de Administración de Procesos
-                        de Negocios (BPM) y Reingeniería de Procesos de Negocios (BPR).
-                    </Typography>
-                    <Typography variant="body1">
-                        Ponemos a su servicio todos nuestros conocimientos en el campo empresarial y de software.
-                    </Typography>
-                    <Box className="button-container">
-                        <Button endIcon={<AlternateEmailIcon/>} href="#home">Productos</Button >
-                        <Button endIcon={<CategoryIcon/>} href="#contact">Contáctenos</Button >
+                    <Box className="info-container">
+                        <Typography variant="h1" component="h1" className="title-text" gutterBottom>
+                            <strong>Nuestra empresa</strong>, fundada en <strong>1995</strong>
+                        </Typography>
+                        <Box className="info-text-map">
+                            <Box width={'70%'}>
+                                <Typography variant="body1" className="info-text">
+                                    Desde nuestros inicios, hemos tenido un objetivo claro: brindar un servicio integral que ofrezca respaldo y confianza a nuestros clientes. Atendemos principalmente en la <strong>provincia de Entre Ríos, incluyendo las ciudades de Colón, San José, Villa Elisa y Concepción del Uruguay</strong>.
+                                </Typography>
+                                <Typography variant="body1" className="info-text">
+                                    Estamos en constante capacitación, implementando las últimas herramientas y metodologías ágiles para asegurar soluciones óptimas y eficientes. Basamos nuestro trabajo en principios de Administración de Procesos de Negocios (BPM) y Reingeniería de Procesos (BPR), aplicando prácticas modernas como Programación Extrema y RAD.
+                                </Typography>
+                            </Box>
+                            {/*                             <Box className="iframe-container">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3375.4699151036607!2d-58.14028582347436!3d-32.218511435486874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95ae3304834707b3%3A0x35d62ca21b038e25!2sPiramide%20Soft%20-%20ingenier%C3%ADa%20de%20software!5e0!3m2!1ses!2sar!4v1729505011210!5m2!1ses!2sar"
+                                    allowFullScreen=""
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade" />
+                            </Box> */}
+                        </Box>
+                        <Typography variant="h4" component="h4" className="quote" gutterBottom>
+                            “Si elige las soluciones de nuestra Empresa no solo está adquiriendo un software, sino que se está garantizando el buen funcionamiento del mismo.”
+                        </Typography>
+                    </Box>
+                    <Box className="buttons-nav">
+                        {navButtons.map((button) => (
+                            <CardActionAreaComponent
+                                key={button.id}
+                                title={button.title}
+                                href={button.href}
+                                image={button.img}
+                            />
+                        ))}
                     </Box>
                     <Box className="memberships">
-                        <Typography variant="h4" component="h4" gutterBottom>
-                            Nuestra Empresa es miembro de:
+                        <Typography variant="h5" component="h4" gutterBottom>
+                            Somos miembros de: <Divider />
                         </Typography>
                         <Box className="img-members">
                             <img src="soft_indus.gif" alt="Logo Software Industry Professionals" />
