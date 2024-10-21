@@ -21,7 +21,7 @@
       font-size: 3rem;
       color: $primary-color;
       font-family: $font-family-primary;
-      margin: $margin-element 0;
+      margin: $margin-element;
       border-bottom: 2px solid transparent; // Inicialmente transparente
       transition: color 0.3s ease; // Transición para el color del texto
       position: relative; // Necesario para el pseudo-elemento
@@ -29,11 +29,13 @@
         font-size: 2rem;
         text-decoration: underline;
         text-decoration-color: $success-color;
+        pointer-events: none; // Disable hover
       }
       @include mobile {
         font-size: 1.5rem;
         text-decoration: underline;
         text-decoration-color: $success-color;
+        pointer-events: none; // Disable hover
       }
       &::after {
         content: "";
@@ -66,6 +68,7 @@
         align-items: center;
         justify-content: center;
         .info-text {
+          text-indent: 2em;
           font-family: $font-family-secondary;
           text-align: justify;
           width: 80%;
@@ -190,12 +193,12 @@
   }
 }
 
-.end-about-us-container{
+.end-about-us-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  .logo-container{
-    img{
+  .logo-container {
+    img {
       width: 23rem;
       height: auto;
       margin: 0 1rem;
@@ -203,8 +206,11 @@
         width: 17rem;
       }
       @include mobile {
-        width: 5rem;
+        width: 10rem;
       }
     }
+  }
+  @include mobile {
+    flex-direction: column-reverse;
   }
 }

@@ -1,8 +1,9 @@
 import { Box, Divider, Typography } from "@mui/material"
-import { CardActionAreaComponent } from "./components";
+/* import { CardActionAreaComponent } from "./components"; */
 import './styles/AboutUs.scss'
+import { useMediaQuery } from "react-responsive"
 
-const navButtons = [
+/* const navButtons = [
     {
         id: 1,
         title: 'Productos',
@@ -21,16 +22,17 @@ const navButtons = [
         href: '#contact',
         img: 'contact.jpg'
     }
-]
+] */
 
 export const AboutUs = () => {
+    const isMobile = useMediaQuery({ query: '(max-width: 410px)' })
     return (
         <>
             <Box id="aboutus" component="section" className="about-company">
                 <Box className="company-info">
                     <Box className="info-container">
                         <Typography variant="h1" component="h1" className="title-text" gutterBottom>
-                            <strong>Nuestra empresa</strong>, fundada en <strong>1995</strong>
+                            <strong>Nuestra empresa</strong>,{ isMobile ? <br/> : ' ' }fundada en <strong>1995</strong>
                         </Typography>
                         <Box className="info-text-map">
                             <Box className="info-text-container" width={'100%'}>
