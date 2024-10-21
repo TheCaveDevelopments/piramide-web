@@ -17,7 +17,9 @@ import { useState } from 'react';
 import { Backdrop } from '@mui/material';
 
 export const SpeedDialTool = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [tooltipOpen, setTooltipOpen] = useState({});
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -35,6 +37,14 @@ export const SpeedDialTool = () => {
     handleScroll(event, id);
     handleClose();
   };
+  const handleTooltipOpen = (name) => {
+    setTooltipOpen(() => ({}));
+    setTooltipOpen((prev) => ({ ...prev, [name]: true }));
+  };
+  const handleTooltipClose = () => {
+    setTooltipOpen(() => ({}));
+  };
+
   const actions = [
     { icon: <ContactMailIcon sx={{ color: 'white' }} />, name: 'Contacto', id: 'contact' },
     { icon: <FileCopyIcon sx={{ color: 'white' }} />, name: 'Email', onClick: handleCopy, id: 'email' },
@@ -47,23 +57,32 @@ export const SpeedDialTool = () => {
 
   return (
     <Box className={`speedDial-container ${open ? 'expanded' : ''}`}
-      sx={{ transform: 'translateZ(0px)', flexGrow: 1, position: 'fixed', zIndex: 10, bottom: 5, right: 0 }}>
-      <Backdrop open={open} onClick={handleClose} sx={{ height: '101vh' }} />
+      sx={{ transform: 'translateZ(0px)', flexGrow: 1, position: 'fixed', zIndex: 10, bottom: { xs: 16, sm: 5 }, right: 0 }}>
+      <Backdrop open={open} onClick={handleClose} sx={{ height: '102vh' }} />
       <SpeedDial
-        sx={{ position: 'absolute', bottom: 16, right: 16, zIndex: 10 }}
+        sx={{ position: 'absolute', bottom: { xs: 65, sm: 60 }, right: 16, zIndex: 10 }}
         className='speedDial'
         ariaLabel="SpeedDial with navigation actions"
         icon={<SpeedDialIcon />}
         onClose={handleClose}
         onOpen={handleOpen}
+        onMouseEnter={handleTooltipClose}
         open={open}
       >
         {actions.map((action) => (
           <SpeedDialAction
+            sx={{
+              '.MuiSpeedDialAction-staticTooltipLabel': {
+                transition: 'all 0.5s ease',
+                opacity: tooltipOpen[action.name] ? 1 : 0,
+              },
+            }}
             key={action.name}
             icon={action.icon}
             tooltipTitle={action.name}
-            tooltipOpen
+            tooltipOpen={true}
+            onMouseEnter={() => handleTooltipOpen(action.name)}
+            onMouseLeave={handleTooltipClose}
             onClick={(event) => action.onClick ? action.onClick() : handleNavigation(event, action.id)}
           />
         ))}

@@ -1,32 +1,31 @@
 @import "../../../styles/utilities/styleRules.scss";
 
 .speedDial-container {
-    &.expanded {
-      width: 100vw;
-      height: 100vh;
+  &.expanded {
+    width: 100vw;
+    height: 100vh;
+  }
+  .speedDial {
+    .MuiButtonBase-root {
+      background-color: $primary-color;
     }
-    .speedDial {
-      .MuiButtonBase-root {
-        background-color: $primary-color;
-      }
-      .MuiSpeedDialAction-staticTooltipLabel {
-        background-color: $primary-color;
-        color: $secondary-color;
-        font-family: $font-family-primary;
-        width: 6.5rem;
-        text-align: center;
-        transition: background-color 0.3s ease; /* Añade una transición suave */
-      }
-      .MuiSpeedDialAction-staticTooltip {
-        display: flex;
-        align-items: center;
-  
-        &:hover .MuiSpeedDialAction-staticTooltipLabel {
-          background-color: $success-color;
-        }
-      }
-      .MuiButtonBase-root:hover {
+    .MuiSpeedDialAction-staticTooltipLabel {
+      background-color: $primary-color;
+      color: $secondary-color;
+      font-family: $font-family-primary;
+      width: 7.7rem;
+      text-align: center;
+    }
+    .MuiSpeedDialAction-staticTooltip {
+      display: flex;
+      align-items: center;
+
+      &:hover .MuiSpeedDialAction-staticTooltipLabel {
         background-color: $success-color;
       }
     }
+    .MuiButtonBase-root:hover {
+      background-color: $success-color;
+    }
   }
+}
