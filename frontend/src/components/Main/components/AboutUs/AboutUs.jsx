@@ -1,28 +1,6 @@
 import { Box, Divider, Typography } from "@mui/material"
-/* import { CardActionAreaComponent } from "./components"; */
 import './styles/AboutUs.scss'
 import { useMediaQuery } from "react-responsive"
-
-/* const navButtons = [
-    {
-        id: 1,
-        title: 'Productos',
-        href: '#products',
-        img: 'products.png'
-    },
-    {
-        id: 2,
-        title: 'Servicios',
-        href: '#services',
-        img: 'services.jpg'
-    },
-    {
-        id: 3,
-        title: 'Contáctenos',
-        href: '#contact',
-        img: 'contact.jpg'
-    }
-] */
 
 export const AboutUs = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 410px)' })
@@ -40,8 +18,6 @@ export const AboutUs = () => {
                                 <Typography variant="body1" className="info-text">
                                     Desde nuestros inicios, hemos tenido un objetivo claro: brindar un servicio integral que ofrezca respaldo y confianza a nuestros clientes. Atendemos principalmente en la <strong>provincia de Entre Ríos, incluyendo las ciudades de Colón, San José, Villa Elisa y Concepción del Uruguay</strong>.
                                 </Typography>
-                                <Divider variant="midle" />
-
                                 <Typography variant="body1" className="info-text">
                                     Estamos en constante capacitación, implementando las <strong>últimas herramientas y metodologías ágiles para asegurar soluciones óptimas y eficientes</strong>. Basamos nuestro trabajo en principios de Administración de Procesos de Negocios (BPM) y Reingeniería de Procesos (BPR), aplicando prácticas modernas como Programación Extrema y RAD.
                                 </Typography>
@@ -59,16 +35,6 @@ export const AboutUs = () => {
                             “Si elige las soluciones de nuestra Empresa no solo está adquiriendo un software, sino que se está garantizando el buen funcionamiento del mismo.”
                         </Typography>
                     </Box>
-                    {/*                     <Box className="buttons-nav">
-                        {navButtons.map((button) => (
-                            <CardActionAreaComponent
-                                key={button.id}
-                                title={button.title}
-                                href={button.href}
-                                image={button.img}
-                            />
-                        ))}
-                    </Box> */}
                     <Box className='end-about-us-container'>
                         <Box className='logo-container'>
                             <img src="6.svg" alt="Logo Pirámide Soft" />
