@@ -1,0 +1,47 @@
+@import "../../../../../../../styles/utilities/styleRules.scss";
+@import "../../../../../../../styles/mixins/media-queries.scss";
+
+.card {    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25%;
+    margin: $margin-element;
+    box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+    height: 100%; /* Asegura que la carta ocupe el 100% del alto del contenedor */
+    transition: transform 1s ease; /* Añade una transición suave */
+    background-color: $secondary-color;
+    @include mobile {
+        width: 80%;
+    }
+
+    &:hover {
+        transform: scale(1.01); /* Escala la tarjeta al 105% de su tamaño original */
+    }
+
+    .card-title{
+        font-size: $font-size-subtitle;
+        color: $primary-color;
+        font-weight: bold;
+        font-family: $font-family-primary;
+        @include mobile {
+            font-size: medium;
+        }
+    }
+}
+  
+.card-content {
+    flex-grow: 1; /* Permite que el contenido crezca para llenar el espacio disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-media {
+    height: 200px; /* Ajusta la altura según sea necesario */
+    object-fit: cover; /* Asegura que la imagen cubra el área del contenedor */
+    width: 100%; /* Asegura que la imagen ocupe el 100% del ancho del contenedor */
+    @include mobile {
+        height: 150px;
+    }
+}
