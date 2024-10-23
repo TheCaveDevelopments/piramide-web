@@ -1,0 +1,57 @@
+@import "../../../../../../../styles/utilities/styleRules.scss";
+@import "../../../../../../../styles/mixins/media-queries.scss";
+
+.service-card {
+  &.MuiCard-root {
+    background-color: $secondary-color; /* Fondo transparente */
+    }
+  max-width: 20rem;
+  @include mobile{
+    max-width: none;
+  }
+  height: 16.5rem;
+  margin: 1rem;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo transparente */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borde con transparencia */
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .MuiSvgIcon-root {
+    font-size: 5rem;
+    color: $success-color;
+  }
+
+  .service-card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    .service-card-title {
+      font-family: $font-family-primary;
+      font-size: $font-size-subtitle;
+      font-weight: 600;
+      color: $primary-color;
+    }
+    .service-card-description {
+      font-family: $font-family-secondary;
+      font-size: $font-size-base;
+      color: $tertiary-color;
+    }
+  }
+
+}
