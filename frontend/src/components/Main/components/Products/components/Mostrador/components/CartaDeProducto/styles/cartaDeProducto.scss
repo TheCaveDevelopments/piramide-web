@@ -1,0 +1,16 @@
+@import 'src/styles/utilities/styleRules.scss';
+@import "src/styles/mixins/media-queries";
+
+.Carta {
+    .Imagen {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .ImageItem{
+        margin: 0;
+        padding: 0;
+    }
+}
