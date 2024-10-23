@@ -5,25 +5,27 @@
   &.MuiCard-root {
     background-color: $secondary-color; /* Fondo transparente */
     }
-  max-width: 20rem;
-  @include mobile{
-    max-width: none;
-  }
-  height: 16.5rem;
-  margin: 1rem;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.3s ease;
-
-  background-color: rgba(255, 255, 255, 0.1); /* Fondo transparente */
-  backdrop-filter: blur(10px); /* Efecto de desenfoque */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Borde con transparencia */
+    @include mobile{
+      max-width: none;
+    }
+  
+  &{
+    max-width: 20rem;
+    height: 16.5rem;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo transparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde con transparencia */
+  }  
 
   &:hover {
     transform: scale(1.05);

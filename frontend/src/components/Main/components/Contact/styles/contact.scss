@@ -1,12 +1,19 @@
 @import "../../../../../styles/utilities/styleRules.scss";
 
 .contact {
-  min-height: calc(100vh - (5rem + $margin-element + $font-size-subtitle));
-  width: 100vw;
-  height: auto;
-  position: relative;
-  background: url("contact-background.webp") no-repeat center center;
-  background-size: cover;
+  & {
+    min-height: calc(100vh - (5rem + $margin-element + $font-size-subtitle));
+    width: 100vw;
+    height: auto;
+    position: relative;
+    background: url("contact-background.webp") no-repeat center center;
+    background-size: cover;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
 
   &::before {
     content: "";
@@ -18,16 +25,17 @@
     background: rgba(0, 0, 0, 0.5); // Added dark overlay
     z-index: -1;
   }
-  opacity: 0.8;
   .contactPaper {
-    margin: 1rem;
-    width: 70%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    & {
+      margin: 1rem;
+      width: 70%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
     &:hover {
       box-shadow: 0 12px 2rem $success-color;
     }
-    margin-bottom: 2rem;
-    @include mobile{
+    @include mobile {
       width: 100%;
     }
   }
@@ -40,14 +48,16 @@
     flex-direction: column;
     height: 100%;
     .contactTitle {
-      position: relative;
-      border-bottom: 2px solid transparent;
-      transition: color 0.3s ease;
-      width: fit-content;
-      margin-top: 2rem;
-      font-family: $font-family-primary;
-      font-size: $font-size-title;
-      color: $text-color;
+      & {
+        position: relative;
+        border-bottom: 2px solid transparent;
+        transition: color 0.3s ease;
+        width: fit-content;
+        margin-top: 2rem;
+        font-family: $font-family-primary;
+        font-size: $font-size-title;
+        color: $text-color;
+      }
       @include mobile {
         font-size: $font-size-subtitle;
         text-decoration: underline;
@@ -85,10 +95,12 @@
     @include tablet {
       gap: 0;
     }
-    .contactImage{
-      margin-top: 1rem;
-      width: 90%;
-      height: auto;
+    .contactImage {
+      & {
+        margin-top: 1rem;
+        width: 90%;
+        height: auto;
+      }
       @include mobile {
         width: 50%;
       }
@@ -97,9 +109,4 @@
       }
     }
   }
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
 }

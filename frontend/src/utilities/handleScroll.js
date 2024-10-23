@@ -2,7 +2,7 @@ export const handleScroll = (event, id) => {
     event.preventDefault();
   
     const section = document.getElementById(id);
-  
+    console.log(section);
     if (section) {
       const finalScrollPosition = Math.ceil(section.offsetTop);
   
