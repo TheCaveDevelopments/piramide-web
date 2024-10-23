@@ -18,10 +18,10 @@ export const CartaDeProducto = ({
 
   return (
     <Card className="Carta">
-        <Stack direction={ isMobile ? 'column' : 'row'} justifyContent="center" alignItems="flex-start">
+        <Stack direction={ isMobile ? 'column' : 'row'} className='Pila' justifyContent="center" alignItems="flex-start">
           { isMobile && <CardHeader title={titulo} />}
-            <CardMedia className="Imagen" component='img' image={image} sx={{ width: '100%', height: '100%'}}/>
-            <CardContent className="Descripcion">
+            <CardMedia className="Imagen" component='img' image={image} style={{ maxWidth: 'auto'}}/>
+            <CardContent className="Descripcion" style={{minWidth: '250px'}}>
               { !isMobile && <CardHeader title={titulo} /> }
               <Typography variant='body1'>{descripcion}</Typography>
               { !imgPrincipal && <ImageList className="ImageList" cols={4} gap={0}>

@@ -1,10 +1,13 @@
 import Carousel from "react-material-ui-carousel";
 import { elements } from './components/elements';
 import { CartaDeProducto } from "./components";
-import { Card, CardContent, CardHeader, CardMedia, Stack, Typography } from '@mui/material';
 import './styles/mostrador.scss';
+import { useState } from "react";
 
 export const Mostrador = () => {
+
+    const [ancho, setAncho] = useState();
+
   return (
     <Carousel className="Mostrador" navButtonsAlwaysVisible autoPlay={false}>
         {elements.map((element, index) => (
