@@ -2,15 +2,20 @@
 @import "../../../../../styles/mixins/media-queries.scss";
 
 .about-company {
+  min-height: calc(100vh - (5rem + $margin-element + $font-size-subtitle));
   height: fit-content;
   width: 100%;
   padding: $padding-base 0 $padding-base 0;
-  background-color:linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
+  background-color: linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
 }
 
 .company-info {
   width: 100%;
-
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-evenly;
   .info-container {
     display: flex;
     flex-direction: column;
@@ -98,35 +103,7 @@
         }
       }
     }
-    .quote {
-      font-style: italic;
-      color: $primary-color;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-      border-left: 4px solid $success-color;
-      padding: $padding-base;
-      margin: $margin-element;
-      font-family: $font-family-secondary;
-
-      font-size: 2rem;
-      @include tablet {
-      font-size: $font-size-subtitle;
-      }
-      @include mobile {
-      font-size: 1.25rem;
-      }
-
-      position: relative;
-      transition: all 0.3s ease;
-
-      &:hover {
-      color: $success-color;
-      background-color: rgba(0, 0, 0, 0.05);
-      border-left-color: $primary-color;
-      transform: translateX(10px);
-      }
-    }
   }
-
   .buttons-nav {
     display: flex;
     flex-wrap: wrap;
@@ -207,42 +184,70 @@
   }
 }
 
-.end-about-us-container {
+.end-about-us {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
-  .memberships{
-    @include mobile{
-      margin-top: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-around;
+  .quote {
+    font-style: italic;
+    color: $primary-color;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    border-left: 4px solid $success-color;
+    padding: $padding-base;
+    margin: 0 1rem 0 1rem;
+    font-family: $font-family-secondary;
+
+    font-size: 2rem;
+    @include tablet {
+      font-size: $font-size-subtitle;
+    }
+    @include mobile {
+      font-size: 1.25rem;
+    }
+
+    position: relative;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $success-color;
+      background-color: rgba(0, 0, 0, 0.05);
+      border-left-color: $primary-color;
+      transform: translateX(10px);
     }
   }
-  &:hover {
-    background-color: $secondary-color;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aplicar sombra */
-  }
+  .end-about-us-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
 
-  .logo-container {
-    img {
-      width: 23rem;
-      height: auto;
-      margin: 0 1rem;
-      transition: transform 0.3s ease; /* Transición suave para la imagen */
 
-      &:hover {
-        transform: scale(1.05); /* Aumentar tamaño de la imagen */
-      }
 
-      @include tablet {
-        width: 17rem;
-      }
+    .memberships {
       @include mobile {
-        width: 10rem;
+        margin-top: 1rem 0;
       }
     }
-  }
 
-  @include mobile {
-    flex-direction: column-reverse;
+    .logo-container {
+      img {
+        width: 23rem;
+        height: auto;
+        margin: 0 1rem;
+        transition: transform 0.3s ease; /* Transición suave para la imagen */
+
+        @include tablet {
+          width: 17rem;
+        }
+        @include mobile {
+          width: 10rem;
+        }
+      }
+    }
+
+    @include mobile {
+      flex-direction: column-reverse;
+    }
   }
 }
