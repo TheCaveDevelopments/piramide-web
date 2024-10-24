@@ -4,15 +4,11 @@
 .service-card {
   &.MuiCard-root {
     background-color: $secondary-color; /* Fondo transparente */
-    }
-    @include mobile{
-      max-width: none;
-    }
+  }
   
-  &{
-    max-width: 20rem;
+  & {
+    width: 14rem;
     height: 16.5rem;
-    margin: 1rem;
     padding: 1rem;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -25,7 +21,14 @@
     background-color: rgba(255, 255, 255, 0.1); /* Fondo transparente */
     backdrop-filter: blur(10px); /* Efecto de desenfoque */
     border: 1px solid rgba(255, 255, 255, 0.3); /* Borde con transparencia */
-  }  
+  }
+  
+  @include mobile {
+    max-width: none;
+    width: auto;
+    margin: 0 1rem;
+    flex: 1;
+  }
 
   &:hover {
     transform: scale(1.05);
@@ -33,7 +36,7 @@
   }
 
   .MuiSvgIcon-root {
-    font-size: 5rem;
+    font-size: 3.5rem;
     color: $success-color;
   }
 
@@ -45,7 +48,7 @@
     align-items: center;
     .service-card-title {
       font-family: $font-family-primary;
-      font-size: $font-size-subtitle;
+      font-size: 1.25rem;
       font-weight: 600;
       color: $primary-color;
     }
@@ -55,5 +58,4 @@
       color: $tertiary-color;
     }
   }
-
 }
