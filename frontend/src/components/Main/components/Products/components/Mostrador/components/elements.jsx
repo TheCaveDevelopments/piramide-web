@@ -12,7 +12,7 @@ export const elements = [
     },
     {
         titulo: 'Piramide RESTO',
-        descripcion: 'Permite controlar consumos por mesa, enviar comandas a cocina o barra. Ofrece un mapa de mesas abiertas con el total consumido y permite cambiar o dividir mesas según sea necesario.. Incluye control de caja, cuentas corrientes, Libro de IVA Ventas, compras y reportes de ventas, con la posibilidad de imprimir el control de caja, facturación electrónica o fiscal, control de stock, a su vez permite exportar datos a Excel. Sumado a estas características, cuenta con un módulo táctil para mozos agilizando la operación. Esta aplicación cuenta con versiones lite y full para adaptarse a las necesidades de cada negocio.',
+        descripcion: 'Permite controlar consumos por mesa, enviar comandas a cocina o barra. Ofrece un mapa de mesas abiertas con el total consumido y permite cambiar o dividir mesas según sea necesario. Incluye control de caja, cuentas corrientes, Libro de IVA Ventas, compras y reportes de ventas, con la posibilidad de imprimir el control de caja, facturación electrónica o fiscal, control de stock y permite exportar datos a Excel. Sumado a estas características, cuenta con un módulo táctil para mozos agilizando la operación. Esta aplicación cuenta con versiones lite y full para adaptarse a las necesidades de cada negocio.',
         img: [
             'public/productos/resto1.png',
             'public/productos/resto2.png',
