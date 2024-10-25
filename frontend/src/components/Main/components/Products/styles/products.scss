@@ -3,4 +3,12 @@
 
 .Productos{
     height: object-fit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+  @media (max-width: 819px) {
+    height: 800px;
+}
 }
