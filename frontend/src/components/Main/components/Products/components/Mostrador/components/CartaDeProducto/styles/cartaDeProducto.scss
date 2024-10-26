@@ -12,6 +12,7 @@
     flex-wrap: wrap;
     box-sizing: border-box;
     border: black 1px solid;
+    overflow: hidden;
   }
   .Pila {
     width: 100%;
@@ -31,8 +32,14 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: clamp(350px, 500px, 500px);
-      min-width: 350px;
+      width: clamp(200px, 100%, 500px);
+
+      .Texto {
+        margin: 0;
+        padding: 0;
+        text-align: justify;
+        text-indent: 1rem;
+      }
 
       .ImageItem {
         margin: 0;

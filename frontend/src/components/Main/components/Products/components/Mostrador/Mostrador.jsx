@@ -2,54 +2,60 @@ import Carousel from "react-material-ui-carousel";
 import { elements } from "./components/elements";
 import { CartaDeProducto } from "./components";
 import "./styles/mostrador.scss";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useLayoutEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 
 export const Mostrador = () => {
-    const carouselElement = document.querySelector(".Carta");
+  let carouselElement = null;
 
   const [carouselHeight, setCarouselHeight] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const isMobile = useMediaQuery({ query: "(max-width: 819px)" });
 
+  const fetchElement = async () => {
+    while (!carouselElement) {
+      console.log("fetching element");
+      carouselElement = document.querySelectorAll(".Carta");
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      console.log("carouselElement", carouselElement[activeIndex]);
+    }
+  };
+
+  const fetchResize = async () => {
+    let alturaInicial;
+    do {
+      alturaInicial = carouselElement[activeIndex].scrollHeight;
+      handleResize();
+      await new Promise((resolve) => setTimeout(resolve, 10));
+    } while (alturaInicial !== carouselElement[activeIndex].scrollHeight);
+  };
+
   const handleChange = (nowActive) => {
     setActiveIndex(nowActive);
   };
 
   const handleResize = () => {
-    setCarouselHeight(carouselElement.scrollHeight);
+    setCarouselHeight(carouselElement[activeIndex].scrollHeight);
     console.log("resize");
   };
 
-  const handleTransitionEnd = () => {
-    setCarouselHeight(carouselElement.scrollHeight);
-    console.log(
-      "transition end, updated height:",
-      carouselElement.scrollHeight
-    );
-  };
+  useEffect(() => {
+    fetchElement();
+  }, []);
 
   useEffect(() => {
-    if (!isMobile) {
-      window.addEventListener("resize", handleResize);
-      if (carouselElement) {
-        carouselElement.addEventListener("transitionend", handleTransitionEnd);
-      }
-    } else {
-        window.addEventListener("resize", handleResize);
+    console.log("activeIndex", activeIndex);
+    if (!carouselElement) {
+      fetchElement();
     }
+      window.addEventListener("resize", handleResize);
+      fetchResize();
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      if (carouselElement) {
-        carouselElement.removeEventListener(
-          "transitionend",
-          handleTransitionEnd
-        );
-      }
     };
-  }, [isMobile]);
+  }, [isMobile, activeIndex]);
 
   return (
     <Carousel

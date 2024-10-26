@@ -1,21 +1,20 @@
-import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Card, CardActionArea, CardContent, CardHeader, CardMedia, Collapse, ImageList, ImageListItem, Stack, Typography } from '@mui/material'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import './styles/cartaDeProducto.scss'
+import { BotonDespliegue, Descripcion, ListaDeImagenes, Titulo } from './components';
 
 export const CartaDeProducto = ({
   titulo = "Titulo",
   descripcion = "Descripcion",
   imgPrincipal = null,
   imagenes = [],
-  index = '',
+  index = 0,
   activeIndex = 0,
   setHeight = () => {},
 }) => {
   const nodoCartaRef = useRef(null);
   const nodoDescripcionRef = useRef(null);
-  const carta = document.querySelector('.Carta');
 
   const [image, setImage] = useState(imgPrincipal || imagenes[0]);
   const [desplegado, setDesplegado] = useState(false);
@@ -24,11 +23,10 @@ export const CartaDeProducto = ({
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const isMobile = useMediaQuery({ query: '(max-width: 819px)' });
-  const isTablet = useMediaQuery({ query: '(min-width: 820px) and (max-width: 1023px)' });
-  const isDesktop = useMediaQuery({ query: '(min-width: 1024px) and (max-width: 1399px)' });
   const isLargeDesktop = useMediaQuery({ query: '(min-width: 1400px)' });
 
   const setCollapse = () => {
+    console.log('setting collapse');
     desplegado ? setRestarTexto(true) : setRestarTexto(false);
     setDesplegado(!desplegado)
   }
@@ -37,60 +35,50 @@ export const CartaDeProducto = ({
     const image = document.querySelector('.Carta img');
 
     if (image.complete) {
-      console.log('image loaded');
       setImageLoaded(true);
     }
   };
 
   useEffect(() => {
     setIsActive(activeIndex === index);
-    if (!isActive && desplegado) 
+    if (!isActive && desplegado){
+      console.log('isActive', isActive);
       setCollapse();
+    }
   }, [activeIndex, index]);
 
   useEffect(() => {
+    console.log('desplegado', desplegado);
     if (imageLoaded && isActive) {
     if (nodoCartaRef.current && !desplegado) {
-      setHeight( restarTexto ? nodoCartaRef.current.offsetHeight - nodoDescripcionRef.current.offsetHeight : nodoCartaRef.current.offsetHeight);
+      if(restarTexto) {
+        setHeight(nodoCartaRef.current.offsetHeight - nodoDescripcionRef.current.offsetHeight);
+        setRestarTexto(false);
+      } else {
+        setHeight(nodoCartaRef.current.offsetHeight);
+      }
     } else if (nodoCartaRef.current && desplegado) {
       setHeight(nodoCartaRef.current.offsetHeight + nodoDescripcionRef.current.offsetHeight);
     }
-  }}, [isMobile, desplegado,imageLoaded]);
+  }}, [isMobile, desplegado,imageLoaded, isActive]);
 
   return (
     <Card className="Carta" id={`carta-${index}`} ref={nodoCartaRef}>
         <Stack direction={ isLargeDesktop ? 'row' : 'column'} className='Pila' justifyContent="center" alignItems="space-evenly">
 
-          { !isLargeDesktop && <CardHeader title={titulo} style={{textAlign: 'center'}}/>}
+          { !isLargeDesktop && <Titulo titulo={titulo}/>}
           
             <CardMedia className="Imagen" component='img' image={image} onLoad={handleImageLoad}/>
           
-            <CardContent className="Descripcion" style={ !isLargeDesktop ? {flexDirection: 'column-reverse', width:'fit-content', minWidth: '500px'} : {}}>
+            <CardContent className="Descripcion" style={ !isLargeDesktop ? {flexDirection: 'column-reverse', width:'fit-content'} : {}}>
           
-              { isLargeDesktop && <CardHeader title={titulo} /> }
+              { isLargeDesktop && <Titulo titulo={titulo}/> }
               
-              {isMobile && 
-                <CardActionArea className="VerDescripcion" onClick={() => setCollapse() } onChange={() => !desplegado ? setRestarTexto(true) : setRestarTexto(false) }>
-                    <Typography variant='body1'>Ver descripción</Typography>
-                    <KeyboardArrowDownIcon style={desplegado ? {transform: 'rotate(180deg)', transition: 'transform 0.5s ease'} : {transition: 'transform 0.5s ease'}}/>
-                </CardActionArea>
-              }
-          
-              <Collapse in={!isMobile || desplegado} timeout={1500}>
-                        {<Typography variant='body1'  ref={nodoDescripcionRef}>{descripcion}</Typography>}
-              </Collapse>
-              { !imgPrincipal && 
-                <ImageList className="ImageList" cols={4} gap={0}>
-                
-                  {imagenes.map((imagen, index) => (
-          
-                    <ImageListItem key={index} className='ImageItem' onClick={() => setImage(imagen)}>
-                    
-                    <img className='Image' src={imagen} alt={titulo} />
-                  
-                    </ImageListItem>))}
-              
-                </ImageList>}
+              { isMobile && <BotonDespliegue desplegado={desplegado} desplegar={setCollapse}/> }
+
+              <Descripcion descripcion={descripcion} desplegado={!isMobile || desplegado} reference={nodoDescripcionRef}/>
+
+              { !imgPrincipal && <ListaDeImagenes imagenes={imagenes} titulo={titulo} setImage={setImage}/> }
               
             </CardContent>
         
