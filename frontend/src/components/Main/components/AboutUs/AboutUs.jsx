@@ -10,7 +10,7 @@ export const AboutUs = () => {
                 <Box className="company-info">
                     <Box className="info-container">
                         <Typography variant="h1" component="h1" className="title-text" gutterBottom>
-                            <strong>Nuestra empresa</strong>,{ isMobile ? <br/> : ' ' }fundada en <strong>1995</strong>
+                            <strong>Nuestra empresa</strong>,{isMobile ? <br /> : ' '}fundada en <strong>1995</strong>
                         </Typography>
                         <Box className="info-text-map">
                             <Box className="info-text-container" width={'100%'}>
@@ -31,9 +31,6 @@ export const AboutUs = () => {
                                     referrerPolicy="no-referrer-when-downgrade" />
                             </Box>
                         </Box>
-                        <Typography variant="h4" component="h4" className="quote" gutterBottom>
-                            “Si elige las soluciones de nuestra Empresa no solo está adquiriendo un software, sino que se está garantizando el buen funcionamiento del mismo.”
-                        </Typography>
                     </Box>
                     <Box className='end-about-us-container'>
                         <Box className='logo-container'>
@@ -49,6 +46,9 @@ export const AboutUs = () => {
                             </Box>
                         </Box>
                     </Box>
+                    <Typography variant="h4" component="h4" className="quote" gutterBottom>
+                        “Si elige las soluciones de nuestra Empresa no solo está adquiriendo un software, sino que se está garantizando el buen funcionamiento del mismo.”
+                    </Typography>
                 </Box>
             </Box>
         </>

@@ -10,6 +10,34 @@
 
 .company-info {
   width: 100%;
+  .quote {
+    & {
+      font-style: italic;
+      color: $primary-color;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      border-left: 4px solid $success-color;
+      padding: $padding-base;
+      margin: $margin-element;
+      font-family: $font-family-secondary;
+      position: relative;
+      transition: all 0.3s ease;
+      font-size: 2rem;
+    }
+
+    @include tablet {
+      font-size: $font-size-subtitle;
+    }
+    @include mobile {
+      font-size: 1.25rem;
+    }
+
+    &:hover {
+      color: $success-color;
+      background-color: rgba(0, 0, 0, 0.05);
+      border-left-color: $primary-color;
+      transform: translateX(10px);
+    }
+  }
 
   .info-container {
     display: flex;
@@ -21,7 +49,6 @@
         text-align: center;
         font-size: 3rem;
         color: $primary-color;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         font-family: $font-family-primary;
         margin: $margin-element;
         border-bottom: 2px solid transparent;
@@ -100,34 +127,6 @@
           left: 0;
           width: 100%;
         }
-      }
-    }
-    .quote {
-      & {
-        font-style: italic;
-        color: $primary-color;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        border-left: 4px solid $success-color;
-        padding: $padding-base;
-        margin: $margin-element;
-        font-family: $font-family-secondary;
-        position: relative;
-        transition: all 0.3s ease;
-        font-size: 2rem;
-      }
-
-      @include tablet {
-        font-size: $font-size-subtitle;
-      }
-      @include mobile {
-        font-size: 1.25rem;
-      }
-
-      &:hover {
-        color: $success-color;
-        background-color: rgba(0, 0, 0, 0.05);
-        border-left-color: $primary-color;
-        transform: translateX(10px);
       }
     }
   }
@@ -222,27 +221,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: $margin-element;
   transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
   .memberships {
     @include mobile {
       margin-top: 0;
     }
   }
-  &:hover {
-    background-color: $secondary-color;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aplicar sombra */
-  }
-
   .logo-container {
     img {
       width: 23rem;
       height: auto;
       margin: 0 1rem;
       transition: transform 0.3s ease; /* Transición suave para la imagen */
-
-      &:hover {
-        transform: scale(1.05); /* Aumentar tamaño de la imagen */
-      }
 
       @include tablet {
         width: 17rem;
