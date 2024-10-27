@@ -10,7 +10,9 @@ export const AboutUs = () => {
                 <Box className="company-info">
                     <Box className="info-container">
                         <Typography variant="h1" component="h1" className="title-text" gutterBottom>
-                            <strong>Nuestra empresa</strong>,{isMobile ? <br /> : ' '}fundada en <strong>1995</strong>
+                            {"Nuestra empresa,".toUpperCase()}
+                            {isMobile ? <br /> : ' '}
+                            {"fundada en 1995".toUpperCase()}
                         </Typography>
                         <Box className="info-text-map">
                             <Box className="info-text-container" width={'100%'}>

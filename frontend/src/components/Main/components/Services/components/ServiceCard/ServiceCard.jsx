@@ -3,6 +3,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import './styles/ServiceCard.scss';
+import PropTypes from 'prop-types';
 
 export const ServiceCard = ({ title, description, icon }) => {
     return (
@@ -18,6 +19,11 @@ export const ServiceCard = ({ title, description, icon }) => {
                     {description}
                 </Typography>
             </CardContent>
-        </Card>
-    );
+        </Card>);
 }
+
+ServiceCard.propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    icon: PropTypes.element.isRequired,
+};

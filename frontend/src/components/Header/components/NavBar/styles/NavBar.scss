@@ -8,8 +8,13 @@ li {
   color: $secondary-color;
   list-style: none;
   display: inline;
+  width: 100%;
   margin: $margin-element ;
   padding: $padding-base;
+  
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 
   a {
     text-decoration: none;
@@ -24,17 +29,29 @@ li {
     &:hover {
         color: $secondary-color;
         background-size: 97% 2px;
-        font-size: calc($font-size-subtitle * 1.03); // Aumenta el tamaño de la fuente en un 10%
+        font-size: calc($font-size-subtitle * 1.01); // Aumenta el tamaño de la fuente en un 10%
     }
 
     font-size: $font-size-subtitle;
     &.active {
       color: $secondary-color;
       background-size: 97% 2px;
-      font-size: calc($font-size-subtitle * 1.03); // Aumenta el tamaño de la fuente en un 10%
+      font-size: calc($font-size-subtitle * 1.01); // Aumenta el tamaño de la fuente en un 10%
     }
-    @media screen and (max-width: 1063px) {
+    @media screen and (max-width: 1250px) {
       font-size: $fontSizeTablet;
+      &:hover { font-size: calc($fontSizeTablet * 1.01); }
+      &.active { font-size: calc($fontSizeTablet * 1.01); }
+    };
+    @media screen and (max-width: 1200px) {
+      font-size: $fontSizeMobile;
+      &:hover { font-size: calc($fontSizeMobile * 1.01); }
+      &.active { font-size: calc($fontSizeMobile * 1.01); }
+    };
+    @media screen and (max-width: 1110px) {
+      font-size: 1.1rem;
+      &:hover { font-size: calc(1rem * 1.01); }
+      &.active { font-size: calc(1rem * 1.01); }
     };
   };
 }

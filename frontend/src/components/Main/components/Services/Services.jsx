@@ -10,7 +10,7 @@ export const Services = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
-        <Box className='services-section' component={'section'} id="services">
+        <Box component={'section'} id="services" className='services-section'>
             <Box className='services-text'>
                 <Typography variant='h1' component="h1" className="title-text">Nuestros servicios</Typography>
                 <Typography variant='body1' className="info-text">

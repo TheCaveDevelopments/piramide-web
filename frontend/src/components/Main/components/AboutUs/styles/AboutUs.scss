@@ -50,6 +50,7 @@
         font-size: 3rem;
         color: $primary-color;
         font-family: $font-family-primary;
+        font-weight: 600;
         margin: $margin-element;
         border-bottom: 2px solid transparent;
         transition: color 0.3s ease;
@@ -204,7 +205,6 @@
         height: auto;
         align-items: center;
         margin-right: 10px;
-        box-shadow: 0 4px 8px $tertiary-color;
         border-radius: 2px;
       }
       @include tablet {
@@ -222,7 +222,7 @@
   align-items: center;
   justify-content: center;
   margin-top: $margin-element;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   .memberships {
     @include mobile {
       margin-top: 0;
@@ -233,7 +233,7 @@
       width: 23rem;
       height: auto;
       margin: 0 1rem;
-      transition: transform 0.3s ease; /* Transición suave para la imagen */
+      transition: transform 0.3s ease;
 
       @include tablet {
         width: 17rem;
