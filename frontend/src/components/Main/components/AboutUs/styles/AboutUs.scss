@@ -5,7 +5,7 @@
   height: fit-content;
   width: 100%;
   padding: $padding-base 0 $padding-base 0;
-  background-color:linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
+  background-color: linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
 }
 
 .company-info {
@@ -17,20 +17,22 @@
     align-items: center;
     justify-content: center;
     .title-text {
-      text-align: center;
-      font-size: 3rem;
-      color: $primary-color;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      font-family: $font-family-primary;
-      margin: $margin-element;
-      border-bottom: 2px solid transparent; // Inicialmente transparente
-      transition: color 0.3s ease; // Transición para el color del texto
-      position: relative; // Necesario para el pseudo-elemento
+      & {
+        text-align: center;
+        font-size: 3rem;
+        color: $primary-color;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-family: $font-family-primary;
+        margin: $margin-element;
+        border-bottom: 2px solid transparent;
+        transition: color 0.3s ease;
+        position: relative;
+      }
       @include tablet {
         font-size: 2rem;
         text-decoration: underline;
         text-decoration-color: $success-color;
-        pointer-events: none; // Disable hover
+        pointer-events: none;
       }
       @include mobile {
         font-size: 1.5rem;
@@ -69,15 +71,17 @@
         align-items: center;
         justify-content: center;
         .info-text {
-          text-indent: 2em;
-          font-family: $font-family-secondary;
-          text-align: justify;
-          width: 80%;
-          color: $text-color;
-          line-height: 2rem;
-          margin: 1rem 0;
+          & {
+            text-indent: 2em;
+            font-family: $font-family-secondary;
+            text-align: justify;
+            width: 80%;
+            color: $text-color;
+            line-height: 2rem;
+            margin: 1rem 0;
+            font-size: $font-size-base;
+          }
 
-          font-size: $font-size-base;
           @include tablet {
             font-size: medium;
           }
@@ -99,40 +103,43 @@
       }
     }
     .quote {
-      font-style: italic;
-      color: $primary-color;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-      border-left: 4px solid $success-color;
-      padding: $padding-base;
-      margin: $margin-element;
-      font-family: $font-family-secondary;
+      & {
+        font-style: italic;
+        color: $primary-color;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        border-left: 4px solid $success-color;
+        padding: $padding-base;
+        margin: $margin-element;
+        font-family: $font-family-secondary;
+        position: relative;
+        transition: all 0.3s ease;
+        font-size: 2rem;
+      }
 
-      font-size: 2rem;
       @include tablet {
-      font-size: $font-size-subtitle;
+        font-size: $font-size-subtitle;
       }
       @include mobile {
-      font-size: 1.25rem;
+        font-size: 1.25rem;
       }
 
-      position: relative;
-      transition: all 0.3s ease;
-
       &:hover {
-      color: $success-color;
-      background-color: rgba(0, 0, 0, 0.05);
-      border-left-color: $primary-color;
-      transform: translateX(10px);
+        color: $success-color;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-left-color: $primary-color;
+        transform: translateX(10px);
       }
     }
   }
 
   .buttons-nav {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center; // Asegura que todas las cartas tengan el mismo ancho
-    align-items: stretch;
+    & {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: center; // Asegura que todas las cartas tengan el mismo ancho
+      align-items: stretch;
+    }
     h3 {
       font-size: $font-size-subtitle;
       color: $primary-color;
@@ -176,10 +183,12 @@
   align-items: start;
   justify-content: center;
   h5 {
-    font-size: 1.5rem;
-    color: $primary-color;
-    font-family: $font-family-primary;
-    margin-right: 10px;
+    & {
+      font-size: 1.5rem;
+      color: $primary-color;
+      font-family: $font-family-primary;
+      margin-right: 10px;
+    }
     @include mobile {
       font-size: 1rem;
     }
@@ -191,12 +200,14 @@
     align-items: center;
     flex-wrap: wrap;
     img {
-      width: 15rem;
-      height: auto;
-      align-items: center;
-      margin-right: 10px;
-      box-shadow: 0 4px 8px $tertiary-color; /* Efecto de elevación */
-      border-radius: 2px; /* Bordes redondeados */
+      & {
+        width: 15rem;
+        height: auto;
+        align-items: center;
+        margin-right: 10px;
+        box-shadow: 0 4px 8px $tertiary-color;
+        border-radius: 2px;
+      }
       @include tablet {
         width: 10rem;
       }
@@ -212,8 +223,8 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
-  .memberships{
-    @include mobile{
+  .memberships {
+    @include mobile {
       margin-top: 0;
     }
   }
