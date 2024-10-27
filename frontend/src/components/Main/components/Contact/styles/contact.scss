@@ -1,6 +1,10 @@
 @import "../../../../../styles/utilities/styleRules.scss";
 
 .contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
   min-height: calc(100vh - (5rem + $margin-element + $font-size-subtitle));
   width: 100vw;
   height: auto;
@@ -97,9 +101,4 @@
       }
     }
   }
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
 }

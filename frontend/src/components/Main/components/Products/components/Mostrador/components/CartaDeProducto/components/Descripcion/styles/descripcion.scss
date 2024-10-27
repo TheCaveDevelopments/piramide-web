@@ -1,0 +1,9 @@
+@import "src/styles/utilities/styleRules.scss";
+@import "src/styles/mixins/media-queries";
+
+.Texto {
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+    text-indent: 1rem;
+  }

@@ -1,0 +1,11 @@
+@import 'src/styles/utilities/styleRules.scss';
+@import "src/styles/mixins/media-queries";
+
+.Productos{
+    height: object-fit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
