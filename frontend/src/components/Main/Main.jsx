@@ -6,7 +6,8 @@ export const Main = () => {
   return (
     <Box component='main'>
         <Home id="home" />
-        <Products />
+        <Products id="products"/>
+        <AboutUs id="aboutUs"/>
         <Contact id="contact" />
     </Box>
   )
