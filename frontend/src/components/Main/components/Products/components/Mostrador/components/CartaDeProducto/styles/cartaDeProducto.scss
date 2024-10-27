@@ -34,19 +34,6 @@
       align-items: center;
       width: clamp(200px, 100%, 500px);
 
-      .Texto {
-        margin: 0;
-        padding: 0;
-        text-align: justify;
-        text-indent: 1rem;
-      }
-
-      .ImageItem {
-        margin: 0;
-        padding: 0;
-        max-width: 100%;
-        box-sizing: border-box;
-      }
     }
   }
   @media (min-width: 820px) and (max-width: 1400px) {
@@ -57,9 +44,5 @@
     width: 100%;
     height: auto;
     max-height: 750px;
-
-    .ImageList {
-      display: none
-    }
   }
 }

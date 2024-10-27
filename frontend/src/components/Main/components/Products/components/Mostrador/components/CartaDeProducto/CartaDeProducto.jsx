@@ -7,7 +7,6 @@ import { BotonDespliegue, Descripcion, ListaDeImagenes, Titulo } from './compone
 export const CartaDeProducto = ({
   titulo = "Titulo",
   descripcion = "Descripcion",
-  imgPrincipal = null,
   imagenes = [],
   index = 0,
   activeIndex = 0,
@@ -16,7 +15,7 @@ export const CartaDeProducto = ({
   const nodoCartaRef = useRef(null);
   const nodoDescripcionRef = useRef(null);
 
-  const [image, setImage] = useState(imgPrincipal || imagenes[0]);
+  const [image, setImage] = useState(imagenes[0]);
   const [desplegado, setDesplegado] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [restarTexto, setRestarTexto] = useState(false);
@@ -26,8 +25,7 @@ export const CartaDeProducto = ({
   const isLargeDesktop = useMediaQuery({ query: '(min-width: 1400px)' });
 
   const setCollapse = () => {
-    console.log('setting collapse');
-    desplegado ? setRestarTexto(true) : setRestarTexto(false);
+    setRestarTexto(desplegado);
     setDesplegado(!desplegado)
   }
 
@@ -38,17 +36,36 @@ export const CartaDeProducto = ({
       setImageLoaded(true);
     }
   };
+  useEffect(() => {
+    let timer;
+    if (isMobile) {
+      timer = setInterval(() => {
+      setImage((prevImage) => {
+        const currentIndex = imagenes.indexOf(prevImage);
+        const nextIndex = (currentIndex + 1) % imagenes.length;
+        return imagenes[nextIndex];
+      });
+      }, 2500);
+    }
+
+    return () => clearInterval(timer);
+
+  },[isMobile]);
 
   useEffect(() => {
     setIsActive(activeIndex === index);
-    if (!isActive && desplegado){
-      console.log('isActive', isActive);
+    if (activeIndex !== index && desplegado){
       setCollapse();
     }
   }, [activeIndex, index]);
 
   useEffect(() => {
-    console.log('desplegado', desplegado);
+    if (restarTexto) {
+      setHeight(nodoCartaRef.current.offsetHeight - nodoDescripcionRef.current.offsetHeight);
+    }
+  }, [restarTexto]);
+
+  useEffect(() => {
     if (imageLoaded && isActive) {
     if (nodoCartaRef.current && !desplegado) {
       if(restarTexto) {
@@ -60,7 +77,7 @@ export const CartaDeProducto = ({
     } else if (nodoCartaRef.current && desplegado) {
       setHeight(nodoCartaRef.current.offsetHeight + nodoDescripcionRef.current.offsetHeight);
     }
-  }}, [isMobile, desplegado,imageLoaded, isActive]);
+  }}, [isMobile, desplegado,imageLoaded]);
 
   return (
     <Card className="Carta" id={`carta-${index}`} ref={nodoCartaRef}>
@@ -78,7 +95,7 @@ export const CartaDeProducto = ({
 
               <Descripcion descripcion={descripcion} desplegado={!isMobile || desplegado} reference={nodoDescripcionRef}/>
 
-              { !imgPrincipal && <ListaDeImagenes imagenes={imagenes} titulo={titulo} setImage={setImage}/> }
+              { !isMobile && <ListaDeImagenes imagenes={imagenes} titulo={titulo} setImage={setImage}/>}
               
             </CardContent>
         

@@ -1,4 +1,5 @@
 import { Collapse, Typography } from "@mui/material"
+import './styles/descripcion.scss'
 
 export const Descripcion = ({
     descripcion = '',

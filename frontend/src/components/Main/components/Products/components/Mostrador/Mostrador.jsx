@@ -2,7 +2,7 @@ import Carousel from "react-material-ui-carousel";
 import { elements } from "./components/elements";
 import { CartaDeProducto } from "./components";
 import "./styles/mostrador.scss";
-import { useEffect, useState, useRef, useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
 export const Mostrador = () => {
@@ -13,15 +13,12 @@ export const Mostrador = () => {
 
   const isMobile = useMediaQuery({ query: "(max-width: 819px)" });
 
-  const fetchElement = async () => {
+  const fetchElement = () => {
     while (!carouselElement) {
-      console.log("fetching element");
       carouselElement = document.querySelectorAll(".Carta");
-      await new Promise((resolve) => setTimeout(resolve, 100));
-      console.log("carouselElement", carouselElement[activeIndex]);
     }
   };
-
+  
   const fetchResize = async () => {
     let alturaInicial;
     do {
@@ -37,15 +34,9 @@ export const Mostrador = () => {
 
   const handleResize = () => {
     setCarouselHeight(carouselElement[activeIndex].scrollHeight);
-    console.log("resize");
   };
 
   useEffect(() => {
-    fetchElement();
-  }, []);
-
-  useEffect(() => {
-    console.log("activeIndex", activeIndex);
     if (!carouselElement) {
       fetchElement();
     }
@@ -71,7 +62,6 @@ export const Mostrador = () => {
           className="Carta"
           titulo={element.titulo}
           descripcion={element.descripcion}
-          imgPrincipal={element.imgPrincipal}
           imagenes={element.img}
           index={index}
           activeIndex={activeIndex}

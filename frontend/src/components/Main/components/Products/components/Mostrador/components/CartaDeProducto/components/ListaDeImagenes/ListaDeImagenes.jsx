@@ -1,21 +1,32 @@
+import { ImageList, ImageListItem } from "@mui/material";
+import { useEffect, useState } from "react";
+import "./styles/listaDeImagenes.scss";
 
-import { ImageList, ImageListItem } from '@mui/material';
-export const ListaDeImagenes = ({ 
-    imagenes = [],
-    titulo = '',
-    setImage = () => {},
+export const ListaDeImagenes = ({
+  imagenes = [],
+  titulo = "",
+  setImage = () => {},
 }) => {
-  return (
-    <ImageList className="ImageList" cols={4} gap={0}>
-    
-      {imagenes.map((imagen, index) => (
+  const [indexSelected, setIndexSelected] = useState(0);
 
-        <ImageListItem key={index} className='ImageItem' onClick={() => setImage(imagen)}>
-        
-        <img className='Image' src={imagen} alt={titulo} />
-      
-        </ImageListItem>))}
-  
+  const handleImage = (imagen, index) => {
+    if (indexSelected != index) {
+      setImage(imagen);
+      setIndexSelected(index);
+    }
+  };
+
+  return (
+    <ImageList className="ImageList" cols={4} gap={5}>
+      {imagenes.map((imagen, index) => (
+        <ImageListItem
+          key={index}
+          className={`ImageItem ${indexSelected == index ? "Selected" : ""}`}
+          onClick={() => handleImage(imagen, index)}
+        >
+          <img className="Image" src={imagen} alt={titulo} />
+        </ImageListItem>
+      ))}
     </ImageList>
-  )
-}
+  );
+};
