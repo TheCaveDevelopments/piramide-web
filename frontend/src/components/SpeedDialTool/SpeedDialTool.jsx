@@ -15,13 +15,26 @@ import { handleScroll } from '/src/utilities';
 import './styles/SpeedDialTool.scss';
 import { useState } from 'react';
 import { Backdrop } from '@mui/material';
+import { useMediaQuery } from 'react-responsive';
 
 export const SpeedDialTool = () => {
+  const isTabletORMobile = useMediaQuery({ query: '(max-width: 1023px)' });
+
   const [open, setOpen] = useState(false);
   const [tooltipOpen, setTooltipOpen] = useState({});
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpen = () => {
+    if (isTabletORMobile) {
+      handleToolTipOpenAll();
+    }
+    setOpen(true);
+  }
+  const handleClose = () => {
+    if (isTabletORMobile) {
+      handleTooltipCloseAll();
+    }
+    setOpen(false);
+  }
 
   const handleCopy = () => {
     navigator.clipboard.writeText('piramide.soft@gmail.com')
@@ -41,7 +54,15 @@ export const SpeedDialTool = () => {
     setTooltipOpen(() => ({}));
     setTooltipOpen((prev) => ({ ...prev, [name]: true }));
   };
-  const handleTooltipClose = () => {
+  const handleToolTipOpenAll = () => {
+    const newTooltipState = {};
+    actions.forEach(action => {
+      newTooltipState[action.name] = true;
+    });
+    setTooltipOpen(() => newTooltipState);
+    console.log('tooltipOpen', tooltipOpen);
+  }
+  const handleTooltipCloseAll = () => {
     setTooltipOpen(() => ({}));
   };
 
@@ -50,7 +71,7 @@ export const SpeedDialTool = () => {
     { icon: <FileCopyIcon sx={{ color: 'white' }} />, name: 'Email', onClick: handleCopy, id: 'email' },
     { icon: <WhatsAppIcon sx={{ color: 'white' }} />, name: 'WhatsApp', onClick: () => window.open('https://wa.me/5491130770000', '_blank'), id: 'whatsapp' },
     { icon: <HomeWorkIcon sx={{ color: 'white' }} />, name: 'Inicio', id: 'home' },
-    { icon: <EmojiPeopleIcon sx={{ color: 'white' }} />, name: 'Quienes Somos', id: 'about' },
+    { icon: <EmojiPeopleIcon sx={{ color: 'white' }} />, name: 'Quienes Somos', id: 'aboutus' },
     { icon: <DesignServicesIcon sx={{ color: 'white' }} />, name: 'Servicios', id: 'services' },
     { icon: <CategoryIcon sx={{ color: 'white' }} />, name: 'Productos', id: 'products' },
   ];
@@ -66,7 +87,7 @@ export const SpeedDialTool = () => {
         icon={<SpeedDialIcon />}
         onClose={handleClose}
         onOpen={handleOpen}
-        onMouseEnter={handleTooltipClose}
+        onMouseEnter={handleTooltipCloseAll}
         open={open}
       >
         {actions.map((action) => (
@@ -82,7 +103,7 @@ export const SpeedDialTool = () => {
             tooltipTitle={action.name}
             tooltipOpen={true}
             onMouseEnter={() => handleTooltipOpen(action.name)}
-            onMouseLeave={handleTooltipClose}
+            onMouseLeave={handleTooltipCloseAll}
             onClick={(event) => action.onClick ? action.onClick() : handleNavigation(event, action.id)}
           />
         ))}
