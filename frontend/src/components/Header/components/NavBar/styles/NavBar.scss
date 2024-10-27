@@ -28,7 +28,11 @@ li {
     }
 
     font-size: $font-size-subtitle;
-
+    &.active {
+      color: $secondary-color;
+      background-size: 97% 2px;
+      font-size: calc($font-size-subtitle * 1.1); // Aumenta el tamaño de la fuente en un 10%
+    }
     @media screen and (max-width: 1063px) {
       font-size: $fontSizeTablet;
     };
