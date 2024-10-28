@@ -12,7 +12,7 @@ export const ReCAPTCHAbox = ({ textColor = textColorDefault, backgroundColor = b
 
     const { enqueueSnackbar } = useSnackbar();
     const [show, setShow] = useState(true);
-    const apiKey =  import.meta.env.VITE_RECAPTCHA_API_KEY;
+    const apiKey = import.meta.env.VITE_RECAPTCHA_API_KEY;
 
     useEffect(() => {
         const disableScrollAndLinks = (e) => {
@@ -47,6 +47,7 @@ export const ReCAPTCHAbox = ({ textColor = textColorDefault, backgroundColor = b
             stateFunction(false);
             return;
         }
+
         stateFunction(true);
         enqueueSnackbar('El CAPTCHA se completó correctamente!', { variant: 'success' });
         setShow(false);
@@ -57,7 +58,16 @@ export const ReCAPTCHAbox = ({ textColor = textColorDefault, backgroundColor = b
         color: textColor,
         backgroundColor: backgroundColor
     }
-
+    useEffect(() => {
+        const recaptchaContainer = document.querySelector('.recaptcha-container');
+        if (recaptchaContainer) {
+            const { scrollY, scrollX, innerHeight, innerWidth } = window;
+            const { offsetHeight, offsetWidth } = recaptchaContainer;
+            recaptchaContainer.style.top = `${scrollY + (innerHeight - offsetHeight) / 3}px`;
+            recaptchaContainer.style.left = `${scrollX + (innerWidth - offsetWidth) / 2}px`;
+        }
+    }, []);
+    
     return (
         show && (
             <Box
@@ -71,7 +81,7 @@ export const ReCAPTCHAbox = ({ textColor = textColorDefault, backgroundColor = b
                     <Divider />
                     <ReCAPTCHA
                         className='recaptcha'
-                        sitekey= { apiKey }
+                        sitekey={apiKey}
                         onChange={(value) => handleChange(value)}
                     />
                 </Box>

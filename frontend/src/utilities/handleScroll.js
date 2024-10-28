@@ -1,11 +1,11 @@
 export const handleScroll = (event, id, idSection = null) => {
     event.preventDefault();
     const section = document.getElementById(id);
+    console.log("scrolling to section", section);
   
     if (!idSection){ 
       if (section) {
         const finalScrollPosition = Math.ceil(section.offsetTop);
-    
         window.scrollTo({
           top: finalScrollPosition,
           behavior: "smooth",

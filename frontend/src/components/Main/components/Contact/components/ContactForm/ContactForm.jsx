@@ -7,7 +7,7 @@ import './styles/contactForm.scss';
 import { ReCAPTCHAbox, ThemeContext } from "../../../../..";
 import { useForm, useValidateForm } from "../../../../../../hooks";
 import { sendEmail } from "../../../../../../services/EmailSender/sendEmail";
-
+import { handleScroll } from "../../../../../../utilities";
 const useStyles = makeStyles((theme) => ({
     textField: {
         '& .MuiInputBase-input': {
@@ -97,7 +97,10 @@ export const ContactForm = () => {
 
     const handleClick = (event) => {
         event.preventDefault();
-        setDisplayCAPTCHA(true);
+        handleScroll(event, 'contact-form' ,'contact');
+        setTimeout(() => {
+            setDisplayCAPTCHA(true);
+        }, 500);
     }
     const handleSubmit = async (event) => {
         event.preventDefault();
