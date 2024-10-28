@@ -24,7 +24,6 @@ export const ReCAPTCHAbox = ({ textColor = textColorDefault, backgroundColor = b
             document.body.style.overflow = 'hidden';
 
             document.querySelectorAll('.nav-link').forEach((link) => {
-                console.log(link);
                 link.addEventListener('click', disableScrollAndLinks);
             });
         } else {
@@ -67,7 +66,7 @@ export const ReCAPTCHAbox = ({ textColor = textColorDefault, backgroundColor = b
             recaptchaContainer.style.left = `${scrollX + (innerWidth - offsetWidth) / 2}px`;
         }
     }, []);
-    
+
     return (
         show && (
             <Box
