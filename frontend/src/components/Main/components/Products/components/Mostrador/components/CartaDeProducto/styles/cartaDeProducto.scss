@@ -26,11 +26,12 @@
     .Imagen {
       padding: 0;
       margin: auto;
-      width: 70% !important;
+      width: 100%;
+      max-width: 770px;
       height: auto;
-    box-sizing: border-box;
-    object-fit: contain;
-    object-position: center;
+      box-sizing: border-box;
+      object-fit: contain;
+      object-position: center;
     }
 
     .Descripcion {
@@ -41,7 +42,9 @@
       width: 100%;
       max-width: auto;
       min-width: 200px;
-
+      &.MuiCardContent-root {
+        padding: 1rem 1rem 0 1rem;
+      }
     }
   }
   @media (min-width: 820px) and (max-width: 1400px) {

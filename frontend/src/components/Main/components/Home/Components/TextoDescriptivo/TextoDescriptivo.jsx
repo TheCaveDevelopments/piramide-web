@@ -11,24 +11,23 @@ const siguientePanel = (panel) => {
 export const TextoDescriptivo = ({ isMobile }) => {
 
   const [expanded, setExpanded] = useState(elements[0].panel);
-  
   const [fixed, setFixed] = useState(false);
-  
+
   const handleChange = (panel) => {
-      if (!fixed) {
-        setExpanded(panel);
-        setFixed(true);
-        elements[elements.findIndex(element => element.panel === panel)].fixed = true;
-      } else if (panel !== expanded) {
-        elements[elements.findIndex(element => element.panel === expanded)].fixed = false;
-        setExpanded(panel);
-        elements[elements.findIndex(element => element.panel === panel)].fixed = true;
-      } else {
-        setExpanded(siguientePanel(panel));
-        setFixed(false);
-        elements[elements.findIndex(element => element.panel === panel)].fixed = false;
-      }
-    };
+    if (!fixed) {
+      setExpanded(panel);
+      setFixed(true);
+      elements[elements.findIndex(element => element.panel === panel)].fixed = true;
+    } else if (panel !== expanded) {
+      elements[elements.findIndex(element => element.panel === expanded)].fixed = false;
+      setExpanded(panel);
+      elements[elements.findIndex(element => element.panel === panel)].fixed = true;
+    } else {
+      setExpanded(siguientePanel(panel));
+      setFixed(false);
+      elements[elements.findIndex(element => element.panel === panel)].fixed = false;
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -36,19 +35,20 @@ export const TextoDescriptivo = ({ isMobile }) => {
     }, 3000);
 
     return () => clearInterval(interval);
-}, [expanded, fixed]);
+  }, [expanded, fixed]);
 
   return (
-    <Stack width={isMobile ? '100%' : '50%'}>
+    <Stack margin={isMobile ? '0 auto' : '0'} width={isMobile ? 'auto' : '50%'}>
       {elements.map((element) => (
-        <Acordeon 
-          key={element.id} 
-          title={element.title} 
-          panel={element.panel} 
-          elements={element.elements} 
-          expanded={expanded} 
-          handleChange={handleChange} 
-          fixed={element.fixed}/>
+        <Acordeon
+          key={element.id}
+          title={element.title}
+          panel={element.panel}
+          elements={element.elements}
+          expanded={expanded}
+          handleChange={handleChange}
+          fixed={element.fixed}
+          isMobile={isMobile} />
       ))}
     </Stack>
   );

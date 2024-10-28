@@ -25,6 +25,9 @@ export const Accordion = styled((props) => (
     />
   ))(({ theme }) => ({
     flexDirection: 'row-reverse',
+    '& .MuiSvgIcon-root': {
+      transform: 'scale(1.5)',
+    },
     '&.fixed' : {
       color: '#3f4b8c',
       '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {

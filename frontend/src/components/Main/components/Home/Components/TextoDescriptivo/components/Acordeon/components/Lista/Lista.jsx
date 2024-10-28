@@ -9,7 +9,7 @@ export const Lista = ({
     <List className="Lista">
         {elements.map((element) => (
             <IconItem key={element.id} icon={element.icon} text={element.text}/>
-        ))}
+        ))} 
     </List>
   )
 }

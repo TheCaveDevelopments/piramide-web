@@ -17,6 +17,8 @@
         height: 105%;
         background-image: url('https://ss-static-01.esmsv.com/id/134567/galeriaimagenes/obtenerimagen/?id=22&tipoEscala=stretch&width=1920&height=1080');
         background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
         filter: blur(5px); // Aplica el desenfoque
         z-index: -1; // Asegúrate de que esta capa esté detrás del contenido
     }

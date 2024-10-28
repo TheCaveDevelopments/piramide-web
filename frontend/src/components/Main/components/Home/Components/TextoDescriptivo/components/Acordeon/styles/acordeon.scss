@@ -1,6 +1,26 @@
-@import '../../../../../../../../../styles/mixins/media-queries.scss';
+@import "../../../../../../../../../styles/mixins/media-queries.scss";
 @import "../../../../../../../../../styles/utilities/styleRules.scss";
 
 .content {
-    padding: 0;
+  padding: 0;
+}
+
+.acordeon {
+  .title-accordion {
+    white-space: nowrap;
+    &.MuiTypography-root {
+      & {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        font-size: 1.30rem;
+      }
+      @include mobile {
+        font-size: 1.25rem;
+      }
+      @include tablet {
+        font-size: 1.25rem;
+      }
+    }
+  }
 }

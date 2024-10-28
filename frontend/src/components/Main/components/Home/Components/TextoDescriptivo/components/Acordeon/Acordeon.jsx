@@ -9,11 +9,13 @@ export const Acordeon = ({
     elements,
     title = 'Título',
     panel = 'panel1',
-    fixed = false
+    fixed = false,
+    isMobile = false
 }) => {
 
   return (
       <Accordion
+            sx={{ width: `${isMobile ? "auto" : "100%"}` }}
             className={`acordeon`}
             expanded={expanded === panel}
             onChange={() => handleChange(panel)}
@@ -24,7 +26,7 @@ export const Acordeon = ({
             aria-controls={`${panel}d-content`} 
             id={`${panel}d-header`}
         >
-          <Typography>{title}</Typography>
+          <Typography className="title-accordion">{title}</Typography>
         </AccordionSummary>
         <AccordionDetails
             className={`content ${fixed ? 'fixed' : ''}`}
