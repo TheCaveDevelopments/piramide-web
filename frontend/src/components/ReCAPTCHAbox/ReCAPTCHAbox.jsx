@@ -12,6 +12,7 @@ export const ReCAPTCHAbox = ({ textColor = textColorDefault, backgroundColor = b
 
     const { enqueueSnackbar } = useSnackbar();
     const [show, setShow] = useState(true);
+    const apiKey =  import.meta.env.VITE_RECAPTCHA_API_KEY;
 
     useEffect(() => {
         const disableScrollAndLinks = (e) => {
@@ -70,7 +71,7 @@ export const ReCAPTCHAbox = ({ textColor = textColorDefault, backgroundColor = b
                     <Divider />
                     <ReCAPTCHA
                         className='recaptcha'
-                        sitekey="6LcNw1wqAAAAADmjS-QdIGLi1nyb2OC2r4tsYiuK"
+                        sitekey= { apiKey }
                         onChange={(value) => handleChange(value)}
                     />
                 </Box>

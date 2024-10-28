@@ -1,13 +1,11 @@
 import ReactDOMServer from "react-dom/server";
-import { Consult } from "./emails"; // Asegúrate de importar tu componente de email
+import { Consult } from "./emails";
 
 const renderEmailTemplate = (formData) => {
-  console.log("formData passed to renderEmailTemplate:", formData);
   return ReactDOMServer.renderToString(<Consult {...formData} />);
 };
 
 export async function sendEmail(formData) {
-  console.log("formData passed to sendEmail:", formData);
   const emailHtml = renderEmailTemplate(formData);
 
   const payload = {
@@ -16,7 +14,7 @@ export async function sendEmail(formData) {
   };
 
   try {
-    const response = await fetch("http://localhost:3000/send-email", {
+    const response = await fetch("https://piramide-web-backend.onrender.com/send-email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,8 +27,8 @@ export async function sendEmail(formData) {
     }
 
     const data = await response.json();
-    console.log("Email sent successfully:", data);
+    return { status: "success", data };
   } catch (error) {
-    console.error("Error sending email:", error);
+    return { status: "error", error: error.message };
   }
 }

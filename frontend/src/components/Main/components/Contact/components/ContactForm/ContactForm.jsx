@@ -117,8 +117,8 @@ export const ContactForm = () => {
         resetFormErrors();
 
         const formData = { completename, email, phone, subject, consult };
-        try {
-            await sendEmail(formData);
+        const response = await sendEmail(formData);
+        if (response.status === 'success') {
             Swal.fire({
                 icon: 'success',
                 title: 'Consulta realizada',
@@ -126,8 +126,7 @@ export const ContactForm = () => {
                 confirmButtonText: 'Aceptar',
                 confirmButtonColor: '#3f4b8c'
             });
-        } catch (error) {
-            console.error("No se puedo enviar su consulta!", error);
+        } else {
             enqueueSnackbar('No se pudo realizar su consulta. Intente más tarde!', { variant: 'error' })
         }
     }
