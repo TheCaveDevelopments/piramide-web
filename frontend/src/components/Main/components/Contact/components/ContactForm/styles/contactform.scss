@@ -2,20 +2,19 @@
 @import "../../../../../../../styles/mixins/media-queries.scss";
 
 .formClass {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 80%;
-  height: auto;
-  font-family: $font-family-primary;
-  margin: $margin-element auto;
-  padding: 2rem;
-  border-radius: 10px;
-  border: 1px solid $success-color; // Add a border
-  background: url("../../../../../assets/images/section-background.jpg")
-    no-repeat center center;
-  background-size: cover;
+  & {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 1rem;
+    height: auto;
+    font-family: $font-family-primary;
+    margin: 0 1rem 0 1rem;
+    padding: 2rem;
+    border-radius: 10px;
+    background-size: cover;
+  }
 
   @include mobile {
     margin: 0 auto;

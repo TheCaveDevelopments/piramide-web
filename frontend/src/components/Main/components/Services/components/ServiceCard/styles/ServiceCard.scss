@@ -32,7 +32,7 @@
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 12px $success-color;
+    box-shadow: 0 4px 8px rgba($success-color, 0.5)
   }
 
   .MuiSvgIcon-root {

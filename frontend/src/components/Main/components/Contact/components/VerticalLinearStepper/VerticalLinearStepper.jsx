@@ -42,28 +42,28 @@ const steps = [
 const useStyles = makeStyles((theme) => ({
   stepLabel: {
     '& .MuiStepLabel-label': {
-      fontSize: '1.75rem', // Tamaño de fuente más grande para las etiquetas de los pasos
-      [theme.breakpoints.down('sm')]: {
-        fontSize: '1rem',
-      },
+      fontSize: '1.35rem',
       [theme.breakpoints.between('sm', 'md')]: {
-        fontSize: '1.5rem',
+        fontSize: '1.20rem',
+      },
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '1.1rem',
       },
     },
     '& .MuiStepLabel-label.Mui-active': {
       color: '#3f4b8c',
-      fontWeight: 'bold' // Color para el StepLabel activo
+      fontWeight: 'bold',
     },
   },
   typography: {
     '& .MuiTypography-root': {
-      fontSize: '1.25rem', // Tamaño de fuente para las descripciones de los pasos
-      textAlign: 'justify', // Justificar el texto de las descripciones de los pasos
-      [theme.breakpoints.down('sm')]: {
-        fontSize: '0.8rem',
-      },
+      fontSize: '1.1rem',
+      textAlign: 'justify',
       [theme.breakpoints.between('sm', 'md')]: {
-        fontSize: '1.15rem',
+        fontSize: '1.1rem',
+      },
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '1rem',
       },
     },
   },
