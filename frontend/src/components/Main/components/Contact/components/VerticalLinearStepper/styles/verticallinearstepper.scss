@@ -1,0 +1,30 @@
+@import "../../../../../../../styles/utilities/styleRules.scss";
+@import "../../../../../../../styles/mixins/media-queries.scss";
+
+.stepperContainer{
+  width: 85%;
+  margin: 4rem 1rem 1rem 1rem;
+  @include mobile{
+    width: 92%;
+  }
+  @include tablet{
+    width: 90%;
+    margin-top: 2rem;
+  }
+}
+.step-description{
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+    color: $text-color;
+}
+.step-icon {
+  color: gray; // Color por defecto de los iconos de los pasos
+}
+
+.step-icon-active {
+  color: $success-color; // Color de los iconos de los pasos activos
+}
+
+.step-icon-completed {
+  color: gray; // Color de los iconos de los pasos completados
+}

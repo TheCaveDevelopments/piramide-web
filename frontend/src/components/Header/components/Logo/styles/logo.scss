@@ -1,0 +1,18 @@
+@import "../../../../../styles/mixins/media-queries.scss";
+@import "../../../../../styles/utilities/styleRules.scss";
+
+.logoContainer{
+    margin: $margin-element;
+    img{
+        width: 4.25rem;
+        height: 4.25rem;
+        @include tablet {
+            width: 4rem;
+            height: 4rem;
+        }
+        @include mobile {
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+}

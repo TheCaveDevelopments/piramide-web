@@ -1,0 +1,34 @@
+@import "../../../styles/utilities/styleRules.scss";
+@import '../../../styles/mixins/media-queries.scss';
+
+$fontSizeDesktop: 1.5rem;
+$fontSizeTablet: 1.3rem;
+$fontSizeMobile: 1.2rem;
+
+header {
+  font-family: $font-family-primary;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 5rem;
+  background-color: $primary-color;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+  z-index: 1000;
+
+  nav {
+    margin: 0 $margin-element;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    @media screen and (max-width: 1250px) {
+      justify-content: end;
+    }
+  }
+}

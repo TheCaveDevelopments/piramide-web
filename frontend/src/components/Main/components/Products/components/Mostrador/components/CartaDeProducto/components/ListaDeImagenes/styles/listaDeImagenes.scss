@@ -1,0 +1,25 @@
+@import "../../../../../../../../../../../styles/mixins/media-queries.scss";
+@import "../../../../../../../../../../../styles/utilities/styleRules.scss";
+
+.ImageList {
+  padding: 15px !important;
+  margin: 0 !important;
+  .ImageItem {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    object-fit: contain;
+    object-position: center;
+    cursor: pointer;
+    overflow: hidden;
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(grey, 0.5);
+    }
+
+    &.Selected {
+      box-shadow: 0 4px 8px rgba($success-color, 0.5);
+    }
+  }
+}

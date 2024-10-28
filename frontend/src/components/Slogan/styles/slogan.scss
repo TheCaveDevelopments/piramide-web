@@ -1,0 +1,16 @@
+@use 'sass:math';
+@import 'src/styles/utilities/styleRules.scss';
+
+.slogan {
+    width: 100vw;
+    border-bottom: 10px solid $primary-color;
+    font-family: $font-family-secondary;
+    font-size: $font-size-subtitle;
+    background-color: $primary-color;
+    color: $secondary-color;
+    text-align: center;
+    margin: 0;
+    padding: math.div($margin-element, 2) 0;
+    position: sticky;
+    bottom: 0;
+}

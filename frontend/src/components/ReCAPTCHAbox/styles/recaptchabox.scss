@@ -1,0 +1,40 @@
+@import '../../../styles/utilities/styleRules.scss';
+.recaptcha-overlay {
+    position: absolute; /* Cambiado de fixed a absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white; /* Color de texto */
+    background-color: rgba($tertiary-color, 0.5); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Asegura que el componente cubra todo por encima */
+    pointer-events: auto; /* Permite la interacción con el componente */
+}
+
+
+.recaptcha-container{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 10rem;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    .subtitleCheck{
+        font-family: $font-family-primary;
+        font-size: $font-size-subtitle;
+        margin-bottom: $margin-element;
+    }
+
+    .recapcha{
+        margin-top: $margin-element;
+    }
+}

@@ -1,3 +1,5 @@
+@import '../mixins/media-queries.scss';
+
 // Colores
 $primary-color: #3f4b8c;
 $secondary-color: #f2f2f2;
@@ -11,7 +13,7 @@ $font-family-secondary: 'Roboto', sans-serif;
 $font-size-base: 1rem;
 $font-size-title: 2rem;
 $font-size-subtitle: 1.5rem;
-$font-size-small: 0.75rem;
+$font-size-small: 0.9rem;
 
 // Espaciado
 $margin-element: 1.25rem;

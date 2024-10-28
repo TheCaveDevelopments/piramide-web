@@ -1,0 +1,19 @@
+@import "../../../../../../../../../../../styles/utilities/styleRules.scss";
+@import "../../../../../../../../../../../styles/mixins/media-queries.scss";
+
+.Titulo {
+  color: $primary-color;
+  padding: 0 !important;
+  text-align: center;
+  & .MuiTypography-root{
+    font-family: $font-family-primary;
+    font-weight: 600;
+    font-size: $font-size-title;
+    @include tablet {
+      font-size: $font-size-subtitle;
+    }
+    @include mobile {
+      font-size: $font-size-base;
+    }
+  }
+}

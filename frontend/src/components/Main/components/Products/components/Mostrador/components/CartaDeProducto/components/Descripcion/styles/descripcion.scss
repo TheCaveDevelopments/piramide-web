@@ -1,0 +1,21 @@
+@import "../../../../../../../../../../../styles/utilities/styleRules.scss";
+@import "../../../../../../../../../../../styles/mixins/media-queries.scss";
+
+.Texto {
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+    text-indent: 1rem;
+    &.MuiTypography-root {
+        font-family: $font-family-secondary;
+        font-size: $font-size-base;
+        line-height: 1.75rem;
+        color: $text-color;
+        @include tablet {
+            font-size: $font-size-small;
+        }
+        @include mobile {
+            font-size: $font-size-small;
+        }
+    }
+  }
