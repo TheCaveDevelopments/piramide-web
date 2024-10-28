@@ -28,7 +28,7 @@ export const Info = ( {display} ) => {
         collapsed={ display == 'mobile' || display == 'tablet' }
       />
         <CollapseButton
-        href="https://web.whatsapp.com/send?phone=+543447452943"
+        href="https://wa.me/5493447452943"
         icon={<WhatsAppIcon className='Icon'/>}
         text="+543447452943"
         iconPos={ display == 'mobile' ? "left" : "right" }

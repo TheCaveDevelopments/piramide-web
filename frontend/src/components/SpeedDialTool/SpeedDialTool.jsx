@@ -69,7 +69,7 @@ export const SpeedDialTool = () => {
   const actions = [
     { icon: <ContactMailIcon sx={{ color: 'white' }} />, name: 'Contacto', id: 'contact' },
     { icon: <FileCopyIcon sx={{ color: 'white' }} />, name: 'Email', onClick: handleCopy, id: 'email' },
-    { icon: <WhatsAppIcon sx={{ color: 'white' }} />, name: 'WhatsApp', onClick: () => window.open('https://wa.me/5491130770000', '_blank'), id: 'whatsapp' },
+    { icon: <WhatsAppIcon sx={{ color: 'white' }} />, name: 'WhatsApp', onClick: () => window.open('https://wa.me/5493447452943', '_blank'), id: 'whatsapp' },
     { icon: <HomeWorkIcon sx={{ color: 'white' }} />, name: 'Inicio', id: 'home' },
     { icon: <EmojiPeopleIcon sx={{ color: 'white' }} />, name: 'Quienes Somos', id: 'aboutus' },
     { icon: <DesignServicesIcon sx={{ color: 'white' }} />, name: 'Servicios', id: 'services' },
