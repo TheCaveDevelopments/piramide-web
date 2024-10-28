@@ -3,16 +3,14 @@ import './styles/AboutUs.scss'
 import { useMediaQuery } from "react-responsive"
 
 export const AboutUs = () => {
-    const isMobile = useMediaQuery({ query: '(max-width: 410px)' })
+    const isMobile = useMediaQuery({ query: '(max-width: 500px)' })
     return (
         <>
             <Box id="aboutus" component="section" className="about-company">
                 <Box className="company-info">
                     <Box className="info-container">
                         <Typography variant="h1" component="h1" className="title-text" gutterBottom>
-                            {"Nuestra empresa,".toUpperCase()}
-                            {isMobile ? <br /> : ' '}
-                            {"fundada en 1995".toUpperCase()}
+                            NUESTRA EMPRESA, { isMobile ? <br /> : ' '}FUNDADA EN 1995
                         </Typography>
                         <Box className="info-text-map">
                             <Box className="info-text-container" width={'100%'}>

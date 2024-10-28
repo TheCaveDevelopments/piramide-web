@@ -26,7 +26,7 @@ export const Contact = () => {
               }
               <VerticalLinearStepper />
             </Box>
-            <Box width={'100%'} flex={1}>
+            <Box component='div' id='contact-form-box' width={'100%'} flex={1}>
               <ContactForm />
             </Box>
           </Stack>

@@ -8,8 +8,6 @@
   flex-direction: column;
   justify-content: space-around;
   align-content: center;
-  @include mobile {
-  }
   .services-text {
     display: flex;
     flex-direction: column;
@@ -43,7 +41,7 @@
         content: "";
         position: absolute;
         left: 0;
-        bottom: -2px; 
+        bottom: -2px;
         width: 100%;
         height: 2px;
         background-color: $success-color;
@@ -58,20 +56,21 @@
       }
     }
     .info-text {
-      text-indent: 2em;
-      font-family: $font-family-secondary;
-      text-align: justify;
-      width: 80%;
-      color: $text-color;
-      line-height: 2rem;
-      margin: 1rem auto;
-
-      font-size: $font-size-base;
+      & {
+        text-indent: 2em;
+        font-family: $font-family-secondary;
+        text-align: justify;
+        width: 80%;
+        color: $text-color;
+        line-height: 2rem;
+        font-size: 1.1rem;
+        margin: 1rem auto;
+      }
       @include tablet {
         font-size: medium;
       }
       @include mobile {
-        font-size: small;
+        font-size: $font-size-small;
       }
     }
   }

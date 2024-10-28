@@ -61,10 +61,10 @@ const useStyles = makeStyles((theme) => ({
     },
     checkbox: {
         '&.Mui-checked': {
-            color: '#3f4b8c !important', // Cambia el color del checkbox marcado
+            color: '#3f4b8c !important',
         },
         '&.MuiCheckbox-indeterminate': {
-            color: '#3f4b8c !important', // Cambia el color del checkbox indeterminado
+            color: '#3f4b8c !important',
         },
     }
 }));
@@ -85,7 +85,7 @@ const initialFormError = {
 }
 
 export const ContactForm = () => {
-    const theme = useTheme(); // Obtén el tema
+    const theme = useTheme();
     const classes = useStyles(theme);
 
     const { enqueueSnackbar } = useSnackbar();
@@ -134,8 +134,8 @@ export const ContactForm = () => {
 
     return (
         <ThemeContext>
-            <form onSubmit={(event) => handleSubmit(event)} className='formClass'>
-                <Typography variant='h2' className='contactFormTitle'>Rellena el formulario</Typography>
+            <form id="contact-form" onSubmit={(event) => handleSubmit(event)} className='formClass'>
+                <Typography variant='h2' className='contactFormTitle'>Formulario de contacto</Typography>
                 <TextField
                     error={!!errorcompletename.trim()}
                     color={errorcompletename ? 'error' : 'success'}

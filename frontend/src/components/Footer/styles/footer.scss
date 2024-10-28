@@ -3,6 +3,7 @@
 footer {
     width: 100vw;
     font-family: $font-family-secondary;
+    border-bottom: 10px solid $primary-color;
     background-color: $primary-color;
     color: $secondary-color;
     padding: $padding-base 0;
