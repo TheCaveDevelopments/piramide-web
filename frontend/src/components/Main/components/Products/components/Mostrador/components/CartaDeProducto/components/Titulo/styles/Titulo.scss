@@ -1,0 +1,11 @@
+@import 'src/styles/utilities/styleRules.scss';
+@import "src/styles/mixins/media-queries";
+
+.Titulo {
+    font-family: $font-family-primary;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $primary-color;
+    padding: 0 !important;
+  }

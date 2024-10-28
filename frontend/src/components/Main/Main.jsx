@@ -1,5 +1,5 @@
-import { Box } from "@mui/material"
 import { Home, Contact, Products, AboutUs, Services } from "./components"
+import { Box } from "@mui/material"
 
 import './styles/main.scss'
 

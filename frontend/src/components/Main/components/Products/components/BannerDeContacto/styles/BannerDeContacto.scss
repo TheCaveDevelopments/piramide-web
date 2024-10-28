@@ -1,0 +1,53 @@
+@import "src/styles/utilities/styleRules.scss";
+@import "src/styles/mixins/media-queries";
+
+.Banner-de-contacto {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+
+    .texto {
+        font-size: 1.5rem;
+        color: $primary-color;
+        font-family: $font-family-primary;
+        margin: $margin-element;
+        transition: color 0.3s ease;
+        position: relative;
+        text-align: center;
+        width: auto;
+    }
+
+    .icon {
+        font-size: 2rem;
+        color: $primary-color;
+        transition: all 0.3s ease;
+
+        &.left {
+            margin-left: 1rem;
+        }
+
+        &.right {
+            margin-right: 1rem;
+        }
+    }
+
+  &:hover {
+    color: $success-color;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-left-color: $primary-color;
+    transform: scale(1.05);
+
+    .icon.left {
+        transform: rotate(90deg);
+    }
+
+    .icon.right {
+        transform: rotate(-90deg);
+    }
+  }
+}

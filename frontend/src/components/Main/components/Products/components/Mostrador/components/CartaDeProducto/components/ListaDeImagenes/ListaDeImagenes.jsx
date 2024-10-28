@@ -1,5 +1,5 @@
 import { ImageList, ImageListItem } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./styles/listaDeImagenes.scss";
 
 export const ListaDeImagenes = ({

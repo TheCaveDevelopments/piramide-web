@@ -4,6 +4,8 @@ import { CartaDeProducto } from "./components";
 import "./styles/mostrador.scss";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export const Mostrador = () => {
   let carouselElement = null;
@@ -52,9 +54,13 @@ export const Mostrador = () => {
     <Carousel
       className="Mostrador"
       navButtonsAlwaysVisible
-      autoPlay={false}
+      navButtonsAlwaysInvisible={isMobile}
+      autoPlay={isMobile}
       height={carouselHeight}
       onChange={handleChange}
+      PrevIcon={<ArrowBackIcon />}
+      NextIcon={<ArrowForwardIcon />}
+      interval={7000}
     >
       {elements.map((element, index) => (
         <CartaDeProducto

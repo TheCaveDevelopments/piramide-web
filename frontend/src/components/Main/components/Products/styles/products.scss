@@ -7,5 +7,45 @@
     justify-content: center;
     align-items: center;
 
-    
+    .title-text {
+        text-align: center;
+        font-size: 3rem;
+        width: fit-content;
+        color: $primary-color;
+        font-family: $font-family-primary;
+        margin: 0 auto $margin-element auto;
+        padding: $padding-base 0 0 0;
+        border-bottom: 2px solid transparent; // Inicialmente transparente
+        transition: color 0.3s ease; // Transición para el color del texto
+        position: relative; // Necesario para el pseudo-elemento
+        @include tablet {
+          font-size: 2rem;
+          text-decoration: underline;
+          text-decoration-color: $success-color;
+          pointer-events: none; // Disable hover
+        }
+        @include mobile {
+          font-size: 1.5rem;
+          text-decoration: underline;
+          text-decoration-color: $success-color;
+          pointer-events: none; // Disable hover
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -2px; // Ajusta según el grosor del borde
+          width: 100%;
+          height: 2px; // Ajusta el grosor del subrayado
+          background-color: $success-color;
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.3s ease;
+        }
+        &:hover::after,
+        &:focus::after,
+        &:active::after {
+          transform: scaleX(1);
+        }
+      }
 }

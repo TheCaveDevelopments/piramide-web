@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Card, CardActionArea, CardContent, CardHeader, CardMedia, Collapse, ImageList, ImageListItem, Stack, Typography } from '@mui/material'
+import { Card, CardContent, CardMedia, Stack } from '@mui/material'
 import './styles/cartaDeProducto.scss'
 import { BotonDespliegue, Descripcion, ListaDeImagenes, Titulo } from './components';
 
