@@ -3,7 +3,7 @@ import { NavBar, Logo, SwipeableTemporaryDrawer } from './components';
 import './styles/Header.scss';
 
 export const Header = () => {
-    const isTabletORMobile = useMediaQuery({ query: '(max-width: 1023px)' });
+    const isTabletORMobile = useMediaQuery({ query: '(max-width: 1054px)' });
     
     return (
         <header>

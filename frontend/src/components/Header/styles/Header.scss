@@ -27,8 +27,7 @@ header {
     align-items: center;
     justify-content: center;
     
-    @media screen and (max-width: 1023px) {
-      font-size: $fontSizeTablet;
+    @media screen and (max-width: 1250px) {
       justify-content: end;
     }
   }

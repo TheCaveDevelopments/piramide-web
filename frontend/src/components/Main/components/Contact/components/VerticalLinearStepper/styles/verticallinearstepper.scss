@@ -2,11 +2,15 @@
 @import "../../../../../../../styles/mixins/media-queries.scss";
 
 .stepperContainer{
-  margin: $margin-element;
-  width: 90%;
+  width: 85%;
+  margin: 4rem 1rem 1rem 1rem;
   @include mobile{
-    height: 23rem;
-  }// Ajusta este valor según sea necesario
+    width: 95%;
+  }
+  @include tablet{
+    width: 90%;
+    margin-top: 2rem;
+  }
 }
 .step-description{
     font-family: $font-family-primary;

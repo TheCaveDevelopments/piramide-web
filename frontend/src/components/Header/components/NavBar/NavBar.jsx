@@ -17,7 +17,7 @@ export const NavBar = () => {
                     }
                 });
             },
-            { threshold: 0.9 }
+            { threshold: 0.7 }
         );
 
         sections.forEach((section) => observer.observe(section));
@@ -38,7 +38,7 @@ export const NavBar = () => {
                         onMouseEnter={() => setIshover(true)}
                         onMouseLeave={() => setIshover(false)}
                     >
-                        {option.name}
+                        {option.name.toUpperCase()}
                     </a>
                 </li>
             ))}

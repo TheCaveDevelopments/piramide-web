@@ -53,6 +53,10 @@ const useStyles = makeStyles((theme) => ({
             [theme.breakpoints.between('sm', 'md')]: {
                 fontSize: '1.15rem',
             },
+            width: '100%',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
         }
     },
     checkbox: {
@@ -62,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
         '&.MuiCheckbox-indeterminate': {
             color: '#3f4b8c !important', // Cambia el color del checkbox indeterminado
         },
-    },
+    }
 }));
 
 const initialForm = {
