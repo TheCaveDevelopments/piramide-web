@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Acordeon } from './components';
 import { Stack } from "@mui/material";
 import { elements } from './components/elements';
-import './styles/textoDescriptivo.scss';
 
 const siguientePanel = (panel) => {
   let forwardIndex = elements.findIndex(element => element.panel === panel) + 1;

@@ -1,7 +1,3 @@
-require('@babel/register')({
-    presets: ['@babel/preset-env', '@babel/preset-react']
-});
-
 const express = require('express');
 const { Resend } = require('resend');
 const cors = require('cors');
@@ -12,10 +8,10 @@ app.use(express.json());
 
 const resend = new Resend('re_JEFY5LM6_AFC5QoUsyb2YgXoDcAAEcqCf');
 
-const sendConsultConfirmEmail = async ({ email, completename, subject, emailHtml }) => {
+const sendConsultConfirmEmail = async ({ subject, emailHtml }) => {
     const response = await resend.emails.send({
       from: 'Piramide Soluciones <onboarding@resend.dev>',
-      to: 'atilio.rausch@uner.edu.ar', // Enviar al email proporcionado
+      to: 'atilio.rausch@uner.edu.ar', 
       subject: subject || 'Thank you',
       html: emailHtml
     });

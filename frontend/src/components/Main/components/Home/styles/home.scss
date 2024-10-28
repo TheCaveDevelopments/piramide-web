@@ -1,5 +1,5 @@
-@import 'src/styles/utilities/styleRules.scss';
-@import "src/styles/mixins/media-queries";
+@import '../../../../../styles/mixins/media-queries.scss';
+@import "../../../../../styles/utilities/styleRules.scss";
 
 .Home {
     color: $text-color;
