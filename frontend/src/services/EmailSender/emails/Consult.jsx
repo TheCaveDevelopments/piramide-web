@@ -8,6 +8,7 @@ import {
   Section,
   Text,
   Button,
+  Img,
 } from "@react-email/components";
 
 const main = {
@@ -84,6 +85,7 @@ export const Consult = ({ completename, email, phone, subject, consult }) => {
       <Preview>Consulta de cliente - Piramide</Preview>
       <Body style={main}>
         <Container style={container}>
+          <Img width='560px' src="https://piramidesoluciones.thecave.com.ar/1.jpg" alt="Piramide imagen" />
           <Heading style={codeTitle}>Nueva Consulta de Cliente</Heading>
           <Text style={codeDescription}>
             Hola equipo,
